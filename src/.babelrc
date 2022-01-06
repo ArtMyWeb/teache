@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    ["styled-components", { "ssr": false } ],
+    [
+      "babel-plugin-transform-imports",
+      {
+        "ui/icons": {
+          "transform": "ui/icons/${member}",
+          "skipDefaultConversion": true
+        }
+      }
+    ],
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}
