@@ -15,7 +15,7 @@ export const Logo = styled.div`
   fill: white;
 `;
 export const Navigation = styled.div``;
-export const Anchor = styled.a`
+export const Anchor = styled.div`
   cursor: pointer;
   display: inline-flex;
   font-size: ${themeFontSize("medium")};

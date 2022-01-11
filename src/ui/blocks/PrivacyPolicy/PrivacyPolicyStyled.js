@@ -9,20 +9,23 @@ export const PrivacyPolicyWrapper = styled.div`
 export const Body = styled.div`
   display: flex;
   padding-bottom: 160px;
+  margin-top: 100px;
 `;
 
 export const Content = styled.div`
   margin-left: 60px;
   text-align: justify;
+  font-family: Montserrat, sans-serif;
   p {
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("black")};
-    font-family: Montserrat, sans-serif;
+    font-weight: 400;
     line-height: 27px;
   }
   strong {
     font-size: ${themeFontSize("h5")};
     line-height: 36px;
+    font-weight: 600;
   }
 `;
 

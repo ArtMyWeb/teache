@@ -10,7 +10,7 @@ import Footer from "../ui/blocks/Footer/Footer";
 const HomePage = () => {
   return (
     <>
-      <Header solid />
+      <Header />
       <ScrollMotion />
       <Info />
       <Download />

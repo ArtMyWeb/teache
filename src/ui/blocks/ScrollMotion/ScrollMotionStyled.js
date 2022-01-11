@@ -57,6 +57,7 @@ export const MainTitle = styled.div`
   text-align: center;
   font-family: Poppins, Montserrat, sans-serif;
   font-weight: 600;
+  line-height: 80px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
