@@ -17,37 +17,9 @@ export const FrameWrapper = styled.div`
 
 export const StickyStyled = styled.div`
   overflow: hidden;
-  .section {
-    height: 70vh;
-  }
-  .sticky,
-  .sticky2 {
+  .sticky {
     height: 100vh;
     width: 100%;
-    & .animation,
-    .animation2 {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      & svg {
-        opacity: 1;
-        position: absolute;
-        width: 300px;
-        height: 300px;
-      }
-    }
-    .heading {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      h2 {
-        font-size: 40px;
-        position: absolute;
-        bottom: 10%;
-        left: 10%;
-        margin: 0;
-      }
-    }
   }
 `;
 
@@ -57,18 +29,24 @@ export const MainTitle = styled.div`
   text-align: center;
   font-family: Poppins, Montserrat, sans-serif;
   font-weight: 600;
+  line-height: 80px;
   position: absolute;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
 `;
 
 export const Column = styled.div`
-  color: ${themeColor("white")};
+  color: ${({ dark, theme }) =>
+    dark ? theme.colors["txt"] : theme.colors["white"]};
   position: absolute;
   width: 310px;
   top: 50%;
+  left: ${({ left }) => (left ? "310px" : "auto")};
+  right: ${({ right }) => (right ? "310px" : "auto")};
   transform: translateY(-50%);
   text-align: left;
+  opacity: 0;
 `;
 
 export const PhoneWrapper = styled.div`
@@ -86,8 +64,8 @@ export const PhonePicture = styled.div`
   overflow: hidden;
   position: absolute;
   left: 50%;
-  top: 10%;
-  transform: translateX(-50%);
+  top: ${({ first }) => (first ? "50%" : "10%")};
+  transform: translateX(-50%) ${({ first }) => first && "scale(1.15)"};
   z-index: 1;
   box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
   img {
@@ -131,7 +109,7 @@ export const ColumnTitle = styled.div`
 `;
 
 export const ColumnText = styled.div`
-  font-size: ${themeFontSize("large")};
+  font-size: ${themeFontSize("big")};
   font-family: Montserrat, Poppins, Roboto, "sans-serif";
   font-weight: 500;
   margin-top: 14px;
@@ -146,6 +124,7 @@ export const Circle = styled.div`
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
+  top: 55%;
   left: 50%;
   transform: translateX(-50%);
   transform-origin: center;

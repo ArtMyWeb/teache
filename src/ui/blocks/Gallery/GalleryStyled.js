@@ -14,6 +14,8 @@ export const Row = styled.div`
 export const Col = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   &:first-child {
     margin-right: 130px;
   }
@@ -22,7 +24,7 @@ export const Col = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  margin: ${({ margin }) => (margin ? margin : "0 auto")};
+  margin: ${({ margin }) => (margin ? margin : "0")};
 `;
 
 export const Title = styled.div`
@@ -39,12 +41,13 @@ export const Text = styled.div`
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   color: ${themeColor("black")};
-  max-width: 350px;
+  max-width: ${({ width }) => (width ? `${width}px` : "355px")};
 `;
 
 export const ImageWrapper = styled.div`
   overflow: hidden;
   position: relative;
+  background-color: ${themeColor("blue")};
   width: ${({ width }) => (width ? `${width}px` : "100%")};
   height: ${({ height }) => (height ? `${height}px` : "100%")};
   margin: ${({ margin }) => (margin ? margin : "0 auto")};
@@ -52,7 +55,8 @@ export const ImageWrapper = styled.div`
 
 export const ImageStyled = styled.img`
   position: absolute;
-  width: 100%;
+  height: ${({ high }) => (high ? "100%" : "auto")};
+  width: ${({ wide }) => (wide ? "100%" : "auto")};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

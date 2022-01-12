@@ -7,15 +7,47 @@ export const AccordionWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: ${themeFontSize("h5")};
+  font-size: ${themeFontSize("h3")};
   color: ${themeColor("blue")};
-  font-weight: 700;
+  font-weight: 600;
+  font-family: Montserrat, sans-serif;
 `;
 
 export const AccordionStyled = styled.div`
   width: 100%;
   height: 100%;
-  margin: 20px auto 0;
+  margin: 68px auto 0;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Tabs = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Tab = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 238px;
+  padding: 16px;
+  font-size: ${themeFontSize("regular")};
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  color: ${({ active, theme }) =>
+    active ? theme.colors["blue"] : theme.colors["gray"]};
+  border-bottom: 3px solid
+    ${({ active, theme }) => (active ? theme.colors["blue"] : "transparent")};
+  &:hover {
+    color: ${themeColor("blue")};
+  }
 `;
 
 export const AccordionItem = styled.div`
@@ -39,7 +71,7 @@ export const AccordionTitle = styled.div`
 
 export const AccordionBody = styled.div`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
-  max-width: 520px;
+  padding-right: 60px;
 `;
 
 export const AccordionText = styled.div`

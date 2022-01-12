@@ -24,17 +24,17 @@ const Gallery = () => {
         <Row>
           <Col>
             <ImageWrapper width={640} height={772}>
-              <ImageStyled src={horsePic} alt="horse" />
+              <ImageStyled high="true" src={horsePic} alt="horse" />
             </ImageWrapper>
-            <Content>
-              <Text>
+            <Content style={{ marginBottom: 65, marginTop: 20 }}>
+              <Text width={340}>
                 Choose your own locations for your class, your home, public
                 park, anywhere you can teach
               </Text>
             </Content>
           </Col>
           <Col>
-            <Content>
+            <Content style={{ marginBottom: 120, marginTop: 50 }}>
               <Title>Share Your Talents  & Become a Teacher</Title>
               <Text>
                 Join our instructors' network and give classes in your
@@ -42,35 +42,35 @@ const Gallery = () => {
               </Text>
             </Content>
             <ImageWrapper width={530} height={400}>
-              <ImageStyled src={volleyballPic} alt="volleyball" />
+              <ImageStyled high="true" src={volleyballPic} alt="volleyball" />
             </ImageWrapper>
           </Col>
         </Row>
         <Row>
           <Col>
-            <ImageWrapper width={470} height={510}>
-              <ImageStyled src={fightPic} alt="fight" />
+            <ImageWrapper width={470} height={510} style={{ marginLeft: 60 }}>
+              <ImageStyled wide="true" src={fightPic} alt="fight" />
             </ImageWrapper>
-            <Content>
+            <Content style={{ marginTop: 140 }}>
               <Text>
                 Receive payments through the app and keep track of your revenue
               </Text>
             </Content>
           </Col>
           <Col>
-            <Content>
+            <Content style={{ marginBottom: 140 }}>
               <Text>
                 Manage your own schedule and give classes whenever you feel to
               </Text>
             </Content>
             <ImageWrapper width={530} height={480}>
-              <ImageStyled src={swordsPic} alt="swords" />
+              <ImageStyled high="true" src={swordsPic} alt="swords" />
             </ImageWrapper>
           </Col>
         </Row>
         <Row>
-          <ImageWrapper height={630}>
-            <ImageStyled src={yogaPic} alt="yoga" />
+          <ImageWrapper height={630} style={{ marginTop: 85 }}>
+            <ImageStyled wide="true" src={yogaPic} alt="yoga" />
           </ImageWrapper>
         </Row>
       </Container>

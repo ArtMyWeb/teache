@@ -5,6 +5,7 @@ import {
   PrivacyPolicyWrapper,
   SideBar,
   SideBarItem,
+  Title,
 } from "./PrivacyPolicyStyled";
 import { Container } from "../../base/Container";
 
@@ -13,6 +14,7 @@ const PrivacyPolicy = () => {
   return (
     <PrivacyPolicyWrapper>
       <Container>
+        <Title>{active.policy ? "Privacy Policy" : "Terms"}</Title>
         <Body>
           <SideBar>
             <SideBarItem

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../ui/blocks/Header";
-import { ScrollMotion } from "../ui/blocks/ScrollMotion";
 import { Info } from "../ui/blocks/Info";
 import { Download } from "../ui/blocks/Download";
 import { Neighborhood } from "../ui/blocks/Neighborhood";
 import { Gallery } from "../ui/blocks/Gallery";
-import Footer from "../ui/blocks/Footer/Footer";
+import { Footer } from "../ui/blocks/Footer";
+import ScrollMotion from "../ui/blocks/ScrollMotion/ScrollMotion";
 
 const HomePage = () => {
+  const [headColor, setHeadColor] = useState();
+  const [headSolid, setHeadSolid] = useState(false);
   return (
     <>
-      <Header solid />
-      <ScrollMotion />
+      <Header color={headColor} solid={headSolid} />
+      <ScrollMotion setHeadColor={setHeadColor} setHeadSolid={setHeadSolid} />
       <Info />
       <Download />
       <Neighborhood />
