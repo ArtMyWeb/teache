@@ -11,21 +11,21 @@ import {
 import { Link } from "react-router-dom";
 import { routesPath } from "../../../conts/routes";
 
-const Header = ({ solid }) => {
+const Header = ({ solid, color }) => {
   return (
     <HeaderWrapper solid={solid}>
       <Container>
         <HeaderContent>
           <Logo>
             <Link to={routesPath.main}>
-              <LogoIcon />
+              <LogoIcon color={color !== "white" ? "blue" : "white"} />
             </Link>
           </Logo>
           <Navigation>
             <Link to={routesPath.faq}>
-              <Anchor solid={solid}>FAQ</Anchor>
+              <Anchor color={color}>FAQ</Anchor>
             </Link>
-            <Anchor solid={solid}>Download</Anchor>
+            <Anchor color={color}>Download</Anchor>
           </Navigation>
         </HeaderContent>
       </Container>

@@ -26,41 +26,50 @@ import fitnessRow from "../../../static/pictures/fitness_row.svg";
 import rockClimbingRow from "../../../static/pictures/rock_climbing_row.svg";
 import { theme } from "../../theme/default";
 
-const ScrollMotion = () => {
+const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
   return (
     <StickyStyled>
       <Controller>
-        <Scene triggerHook="onLeave" duration="300%" pin>
+        <Scene triggerHook="onLeave" duration="300%" pin indicators={true}>
           {(progress) => (
             <div className="sticky">
-              <Timeline
-                totalProgress={progress}
-                paused
-                duretion="10%"
-                target={
+              <Timeline totalProgress={progress} paused>
+                <Tween to={{ top: "-50%" }}>
                   <MainTitle>
                     Learn Something <br /> New Today
                   </MainTitle>
-                }
-              >
-                <Tween from={{ top: "20%" }} to={{ top: "-50%" }} />
+                </Tween>
               </Timeline>
               {/* circle */}
               <Timeline totalProgress={progress} target={<Circle />} paused>
                 <Tween
-                  from={{ width: "776px", height: "776px", top: "55%" }}
-                  to={{ width: "200vw", height: "200vw", top: "-80%" }}
+                  to={{ width: "180vw", height: "180vw", top: "-30%" }}
+                  onComplete={() => setHeadColor("white")}
+                  onReverseComplete={() => setHeadColor("grey")}
                   duration={0.05}
+                  delay={0}
                 />
                 <Tween
-                  to={{ background: theme.colors["pink"], delay: 0.5 }}
-                  duration={0.05}
+                  to={{ background: theme.colors["pink"], delay: 0.2 }}
+                  duration={0.5}
+                  onStart={() => setHeadColor("white")}
+                  onReverseComplete={() => {
+                    setHeadColor("white");
+                  }}
                 />
                 <Tween
-                  to={{ background: theme.colors["white"], delay: 1 }}
-                  duration={0.05}
+                  to={{ background: theme.colors["white"], delay: 0 }}
+                  duration={0.5}
+                  onComplete={() => {
+                    setHeadColor("grey");
+                    setHeadSolid(true);
+                  }}
+                  onReverseComplete={() => {
+                    setHeadSolid(false);
+                  }}
                 />
               </Timeline>
+              {/*---*/}
               <Timeline
                 totalProgress={progress}
                 paused
@@ -93,17 +102,64 @@ const ScrollMotion = () => {
                   </>
                 }
               >
-                <Tween to={{ opacity: 1, delay: 0.1 }} duration={0.05} />
-                <Tween to={{ opacity: 0, delay: 0.05 }} duration={0.05} />
+                <Tween
+                  from={{ opacity: 0 }}
+                  to={{ opacity: 1, delay: 2 }}
+                  target={0}
+                />
+                <Tween to={{ opacity: 0, delay: 2 }} target={0} />
+                <Tween to={{ opacity: 1, delay: 1.5 }} target={1} />
+                <Tween to={{ opacity: 0, delay: 1 }} target={1} />
+                <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
               </Timeline>
-              {/* phone */}
+              {/*---*/}
+              <Timeline
+                totalProgress={progress}
+                paused
+                target={
+                  <>
+                    <Column right>
+                      <ColumnTitle>Choose a class</ColumnTitle>
+                      <ColumnText>
+                        You will be able to see what <br /> types of classes are
+                        available <br /> in your neighborhood
+                      </ColumnText>
+                    </Column>
+                    <Column left>
+                      <ColumnTitle>Select an Instructor</ColumnTitle>
+                      <ColumnText>
+                        See the different instructors <br /> for the type of
+                        classes <br /> selected, price and reviews
+                      </ColumnText>
+                    </Column>
+                    <Column right dark>
+                      <ColumnTitle>Schedule Class</ColumnTitle>
+                      <ColumnText>
+                        Select dateand time you want <br /> to takethe class and
+                        that’s it!
+                      </ColumnText>
+                    </Column>
+                  </>
+                }
+              >
+                <Tween
+                  from={{ opacity: 0 }}
+                  to={{ opacity: 1, delay: 2 }}
+                  target={0}
+                />
+                <Tween to={{ opacity: 0, delay: 2 }} target={0} />
+                <Tween to={{ opacity: 1, delay: 1.5 }} target={1} />
+                <Tween to={{ opacity: 0, delay: 1 }} target={1} />
+                <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
+              </Timeline>
+              {/*---*/}
               <PhoneWrapper>
                 <Timeline
                   totalProgress={progress}
                   paused
                   target={
                     <>
-                      <PhonePicture>
+                      <PhonePicture first>
                         <img src={firstPhone} alt="phone" />
                       </PhonePicture>
                       <PhonePicture>
@@ -115,23 +171,14 @@ const ScrollMotion = () => {
                     </>
                   }
                 >
-                  <Tween
-                    from={{ top: "50%", scale: 1.15 }}
-                    to={{ top: "10%", scale: "1" }}
-                    target={0}
-                  />
+                  <Tween to={{ top: "10%", scale: "1" }} target={0} />
                   <Tween duration="30%" to={{ opacity: 1 }} target={0} />
                   <Tween
                     to={{ opacity: 0, delay: 2 }}
                     target={0}
                     duration="10%"
                   />
-                  <Tween
-                    from={{ opacity: 0 }}
-                    to={{ opacity: 1 }}
-                    off
-                    target={1}
-                  />
+                  <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} target={1} />
                   <Tween to={{ opacity: 0, delay: 2 }} target={1} />
                   <Tween
                     from={{ opacity: 0 }}
@@ -141,66 +188,6 @@ const ScrollMotion = () => {
                   />
                 </Timeline>
               </PhoneWrapper>
-              {/* FIRST ROWS */}
-              {/*<div>*/}
-              {/* FIRST TEXT */}
-              {/*<Timeline*/}
-              {/*  totalProgress={progress}*/}
-              {/*  paused*/}
-              {/*  target={*/}
-              {/*    <Column>*/}
-              {/*      <ColumnTitle>Choose a class</ColumnTitle>*/}
-              {/*      <ColumnText>*/}
-              {/*        You will be able to see what <br /> types of classes are*/}
-              {/*        available <br /> in your neighborthood*/}
-              {/*      </ColumnText>*/}
-              {/*    </Column>*/}
-              {/*  }*/}
-              {/*>*/}
-              {/*  <Tween*/}
-              {/*    from={{ left: "100%" }}*/}
-              {/*    to={{ left: "70%" }}*/}
-              {/*    duration={150}*/}
-              {/*    delay={100}*/}
-              {/*  />*/}
-              {/*  <Tween to={{ left: "100%" }} duration={150} delay={100} />*/}
-              {/*</Timeline>*/}
-              {/*  /!* SECOND PHONE *!/*/}
-              {/*  <Timeline*/}
-              {/*    totalProgress={progress}*/}
-              {/*    paused*/}
-              {/*    target={*/}
-              {/*      <PhonePicture>*/}
-              {/*        <img src={secondPhone} alt="phone" />*/}
-              {/*      </PhonePicture>*/}
-              {/*    }*/}
-              {/*  >*/}
-              {/*    <Tween*/}
-              {/*      from={{ opacity: 0 }}*/}
-              {/*      to={{ opacity: 1 }}*/}
-              {/*      delay={1000}*/}
-              {/*      duration={500}*/}
-              {/*    />*/}
-              {/*    <Tween to={{ opacity: 0 }} delay={1300} />*/}
-              {/*  </Timeline>*/}
-              {/*  <Timeline*/}
-              {/*    totalProgress={progress}*/}
-              {/*    paused*/}
-              {/*    target={*/}
-              {/*      <PhonePicture>*/}
-              {/*        <img src={thirdPhone} alt="phone" />*/}
-              {/*      </PhonePicture>*/}
-              {/*    }*/}
-              {/*  >*/}
-              {/*    <Tween*/}
-              {/*      from={{ opacity: 0 }}*/}
-              {/*      to={{ opacity: 1 }}*/}
-              {/*      delay={2000}*/}
-              {/*      duration={500}*/}
-              {/*    />*/}
-              {/*  </Timeline>*/}
-              {/*</div>*/}
-              {/* circle */}
             </div>
           )}
         </Scene>

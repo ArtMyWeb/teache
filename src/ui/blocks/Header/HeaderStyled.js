@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
 
+export const Anchor = styled.div`
+  cursor: pointer;
+  display: inline-flex;
+  font-size: ${themeFontSize("medium")};
+  color: ${({ color, theme }) =>
+    color ? theme.colors[color] : theme.colors["txt"]};
+  transition: color 0.2s;
+  &:first-child {
+    margin-right: 70px;
+  }
+  &:hover {
+    color: ${themeColor("blue")};
+  }
+`;
+
 export const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -11,24 +26,11 @@ export const HeaderWrapper = styled.div`
     solid ? theme.colors["white"] : "transparent"};
   z-index: 99;
 `;
-export const Logo = styled.div`
-  fill: white;
-`;
+
+export const Logo = styled.div``;
+
 export const Navigation = styled.div``;
-export const Anchor = styled.div`
-  cursor: pointer;
-  display: inline-flex;
-  font-size: ${themeFontSize("medium")};
-  color: ${({ solid, theme }) =>
-    solid ? theme.colors["txt"] : theme.colors["white"]};
-  transition: color 0.2s;
-  &:first-child {
-    margin-right: 70px;
-  }
-  &:hover {
-    color: ${themeColor("blue")};
-  }
-`;
+
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
