@@ -15,10 +15,14 @@ export const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  @media (max-width: 930px) {
+    flex-wrap: wrap;
+  }
   @media (max-width: 640px) {
     padding-top: 25px;
     padding-bottom: 25px;
     flex-direction: column;
+    flex-wrap: no-wrap;
   }
 `;
 
@@ -32,8 +36,13 @@ export const ColText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 930px) {
+    order: 2;
+    width: 100%;
+  }
   @media (max-width: 640px) {
     order: 1;
+    width: auto;
   }
 `;
 
@@ -41,6 +50,9 @@ export const ColBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 930px) {
+    order: 1;
+  }
   @media (max-width: 640px) {
     order: 0;
   }
@@ -121,6 +133,7 @@ export const Text = styled.div`
     padding: 0 10px;
   }
   @media (max-width: 640px) {
+    width: auto;
     padding: 0;
     margin-bottom: 7px;
   }
