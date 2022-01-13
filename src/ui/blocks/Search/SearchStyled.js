@@ -4,6 +4,9 @@ import { InputWrapper } from "../../base/Input/InputStyled";
 
 export const SearchWrapper = styled.div`
   padding-top: 214px;
+  @media (max-width: 768px) {
+    padding-top: 34px;
+  }
 `;
 
 export const Title = styled.div`
@@ -11,6 +14,9 @@ export const Title = styled.div`
   color: ${themeColor("txt")};
   font-weight: 600;
   font-family: Poppins, sans-serif;
+  @media (max-width: 768px) {
+    font-size: ${themeFontSize("h5")};
+  }
 `;
 
 export const SearchBar = styled.div`

@@ -10,22 +10,36 @@ export const Body = styled.div`
   display: flex;
   padding-bottom: 160px;
   margin-top: 100px;
+  @media (max-width: 1024px) {
+    margin-top: 66px;
+    padding-bottom: 72px;
+  }
 `;
 
 export const Content = styled.div`
   margin-left: 60px;
   text-align: justify;
   font-family: Montserrat, sans-serif;
+  @media (max-width: 1024px) {
+    margin-left: 40px;
+  }
   p {
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("black")};
     font-weight: 400;
     line-height: 27px;
+    @media (max-width: 1024px) {
+      line-height: 23px;
+    }
   }
   strong {
     font-size: ${themeFontSize("h5")};
     line-height: 36px;
     font-weight: 600;
+    @media (max-width: 1024px) {
+      font-size: 18px;
+      line-height: 34px;
+    }
   }
 `;
 
@@ -34,12 +48,18 @@ export const Title = styled.div`
   color: ${themeColor("txt")};
   font-weight: 600;
   font-family: Poppins, sans-serif;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+  }
 `;
 
 export const SideBar = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1024px) {
+    min-width: 282px;
+  }
 `;
 
 export const SideBarItem = styled.div`
@@ -67,5 +87,15 @@ export const SideBarItem = styled.div`
     height: 85px;
     width: 100vw;
     z-index: -1;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 69px;
+    font-size: 18px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    &:before {
+      height: 69px;
+    }
   }
 `;
