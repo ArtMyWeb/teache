@@ -1,5 +1,8 @@
 import React from "react";
-
+import { useMediaQuery } from "react-responsive";
+import { Controller, Scene } from "react-scrollmagic";
+import { Timeline, Tween } from "react-gsap";
+import { theme } from "../../theme/default";
 import {
   Circle,
   Column,
@@ -12,8 +15,6 @@ import {
   PictureRowsWrapper,
   StickyStyled,
 } from "./ScrollMotionStyled";
-import { Controller, Scene } from "react-scrollmagic";
-import { Timeline, Tween } from "react-gsap";
 
 import firstPhone from "../../../static/pictures/phone.png";
 import secondPhone from "../../../static/pictures/phone_2.png";
@@ -24,15 +25,17 @@ import dateRow from "../../../static/pictures/dateRow.svg";
 import timeRow from "../../../static/pictures/timeRow.svg";
 import fitnessRow from "../../../static/pictures/fitness_row.svg";
 import rockClimbingRow from "../../../static/pictures/rock_climbing_row.svg";
-import { theme } from "../../theme/default";
 
 const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
+  const isTablet = useMediaQuery({ query: "(max-width: 1200px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   return (
     <StickyStyled>
       <Controller>
-        <Scene triggerHook="onLeave" duration="300%" pin indicators={true}>
+        <Scene triggerHook="onLeave" duration="300%" pin>
           {(progress) => (
             <div className="sticky">
+              {/* Title */}
               <Timeline totalProgress={progress} paused>
                 <Tween to={{ top: "-50%" }}>
                   <MainTitle>
@@ -43,7 +46,11 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
               {/* circle */}
               <Timeline totalProgress={progress} target={<Circle />} paused>
                 <Tween
-                  to={{ width: "180vw", height: "180vw", top: "-30%" }}
+                  to={{
+                    width: `${isMobile ? "300vw" : "180vw"}`,
+                    height: `${isMobile ? "300vw" : "180vw"}`,
+                    top: "-30%",
+                  }}
                   onComplete={() => setHeadColor("white")}
                   onReverseComplete={() => setHeadColor("grey")}
                   duration={0.05}
@@ -65,11 +72,12 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     setHeadSolid(true);
                   }}
                   onReverseComplete={() => {
+                    setHeadColor("white");
                     setHeadSolid(false);
                   }}
                 />
               </Timeline>
-              {/*---*/}
+              {/* Rows with images */}
               <Timeline
                 totalProgress={progress}
                 paused
@@ -84,18 +92,18 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                       </PictureRow>
                     </PictureRowsWrapper>
                     <PictureRowsWrapper>
-                      <PictureRow fitness>
+                      <PictureRow woman>
                         <img src={womanRow} alt="woman" />
                       </PictureRow>
-                      <PictureRow climbing>
+                      <PictureRow man>
                         <img src={manRow} alt="man" />
                       </PictureRow>
                     </PictureRowsWrapper>
                     <PictureRowsWrapper>
-                      <PictureRow fitness>
+                      <PictureRow date>
                         <img src={dateRow} alt="date" />
                       </PictureRow>
-                      <PictureRow climbing>
+                      <PictureRow time>
                         <img src={timeRow} alt="time" />
                       </PictureRow>
                     </PictureRowsWrapper>
@@ -112,7 +120,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 <Tween to={{ opacity: 0, delay: 1 }} target={1} />
                 <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
               </Timeline>
-              {/*---*/}
+              {/* Text columns */}
               <Timeline
                 totalProgress={progress}
                 paused
@@ -152,7 +160,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 <Tween to={{ opacity: 0, delay: 1 }} target={1} />
                 <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
               </Timeline>
-              {/*---*/}
+              {/* Phone images */}
               <PhoneWrapper>
                 <Timeline
                   totalProgress={progress}
@@ -171,7 +179,13 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     </>
                   }
                 >
-                  <Tween to={{ top: "10%", scale: "1" }} target={0} />
+                  <Tween
+                    to={{
+                      top: `${isMobile ? "50%" : isTablet ? "30%" : "10%"}`,
+                      scale: "1",
+                    }}
+                    target={0}
+                  />
                   <Tween duration="30%" to={{ opacity: 1 }} target={0} />
                   <Tween
                     to={{ opacity: 0, delay: 2 }}

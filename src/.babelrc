@@ -1,6 +1,14 @@
 {
   "plugins": [
-    ["styled-components", { "ssr": false } ],
+    ["babel-plugin-styled-components",
+      {
+        "minify": true,
+        "transpileTemplateLiterals": true,
+        "fileName": false,
+        "displayName": true,
+        "ssr": false
+      }
+    ],
     [
       "babel-plugin-transform-imports",
       {

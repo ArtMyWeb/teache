@@ -19,6 +19,11 @@ export const Col = styled.div`
   &:first-child {
     margin-right: 130px;
   }
+  @media (max-width: 1600px) {
+    &:first-child {
+      margin-right: 58px;
+    }
+  }
 `;
 
 export const Content = styled.div`

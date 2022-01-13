@@ -2,23 +2,23 @@ import React from "react";
 import { AppleIcon, GoogleIcon } from "../../icons";
 import { Container } from "../../base/Container";
 import { Button } from "../../base/Button";
-import { ButtonRow, InfoWrapper, Title } from "./DownloadStyled";
+import { ButtonRow, DownloadWrapper, Title } from "./DownloadStyled";
 
 const Download = () => {
   return (
-    <InfoWrapper>
+    <DownloadWrapper>
       <Container>
         <Title>Download the App</Title>
         <ButtonRow>
-          <Button icon={<AppleIcon />} background="blue" width={180}>
+          <Button icon={<AppleIcon />} background="blue">
             Apple Store
           </Button>
-          <Button icon={<GoogleIcon />} background="blue" width={180}>
+          <Button icon={<GoogleIcon />} background="blue">
             Google play
           </Button>
         </ButtonRow>
       </Container>
-    </InfoWrapper>
+    </DownloadWrapper>
   );
 };
 
