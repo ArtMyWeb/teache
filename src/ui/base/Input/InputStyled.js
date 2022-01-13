@@ -9,7 +9,6 @@ export const InputWrapper = styled.div`
 
 export const InputContainer = styled.div`
   width: 100%;
-  margin-top: 4px;
   position: relative;
 `;
 
@@ -40,5 +39,10 @@ export const InputStyled = styled.input`
   border-radius: 10px;
   &::placeholder {
     color: ${themeColor("gray")};
+  }
+  @media (max-width: 1200px) {
+    font-size: ${themeFontSize("small")};
+    padding: ${({ icon }) => (icon ? "15px 20px 15px 40px" : "15px 20px")};
+    height: 48px;
   }
 `;

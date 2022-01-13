@@ -29,8 +29,15 @@ export const ButtonStyled = styled.a`
   svg {
     margin-right: 10px;
     width: 31px;
+    min-width: 31px;
   }
   &:hover {
     box-shadow: 0 0 20px 0 rgba(25, 29, 58, 0.17);
+  }
+  @media (max-width: 1200px) {
+    svg {
+      min-width: 20px;
+      width: 20px;
+    }
   }
 `;

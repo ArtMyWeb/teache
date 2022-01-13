@@ -1,12 +1,31 @@
 import styled from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
 import { InputWrapper } from "../../base/Input/InputStyled";
+import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const NeighborhoodWrapper = styled.div`
   margin-top: 23px;
   padding-bottom: 60px;
+  @media (max-width: 1200px) {
+    margin-top: 28px;
+  }
+  @media (max-width: 640px) {
+    margin-top: 20px;
+  }
 `;
 
+export const SendButton = styled(ButtonStyled)`
+  width: 230px;
+  @media (max-width: 1200px) {
+    width: 150px;
+    height: 48px;
+    font-size: ${themeFontSize("small")};
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+`;
 export const Title = styled.div`
   text-align: center;
   color: ${themeColor("txt")};
@@ -15,6 +34,11 @@ export const Title = styled.div`
   line-height: 1.5;
   max-width: 370px;
   margin: 0 auto;
+  @media (max-width: 1200px) {
+    max-width: 100%;
+    font-size: ${themeFontSize("regular")};
+    font-weight: 400;
+  }
 `;
 
 export const Form = styled.div`
@@ -26,5 +50,20 @@ export const Form = styled.div`
   margin: 50px auto 0;
   ${InputWrapper} {
     margin-right: 20px;
+  }
+  @media (max-width: 1200px) {
+    ${InputWrapper} {
+      margin-right: 10px;
+      max-width: 264px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+    margin: 30px auto 0;
+    max-width: 280px;
+    ${InputWrapper} {
+      margin-right: 0;
+    }
   }
 `;

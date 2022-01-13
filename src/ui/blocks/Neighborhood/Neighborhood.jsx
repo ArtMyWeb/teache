@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { Form, NeighborhoodWrapper, Title } from "./NeighborhoodStyled";
+import {
+  Form,
+  NeighborhoodWrapper,
+  SendButton,
+  Title,
+} from "./NeighborhoodStyled";
 import { Container } from "../../base/Container";
 import { Input } from "../../base/Input";
-import { Button } from "../../base/Button";
 
 const Neighborhood = () => {
   const [number, setNumber] = useState();
@@ -17,9 +21,7 @@ const Neighborhood = () => {
             value={number}
             placeholder="Mobile number"
           />
-          <Button background="pink" width={230}>
-            Send me a link
-          </Button>
+          <SendButton background="pink">Send me a link</SendButton>
         </Form>
       </Container>
     </NeighborhoodWrapper>

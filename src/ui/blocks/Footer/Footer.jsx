@@ -16,6 +16,8 @@ import {
   Social,
   SocialItem,
   Text,
+  ColText,
+  ColBtn,
 } from "./FooterStyled";
 import { Container } from "../../base/Container";
 import { routesPath } from "../../../conts/routes";
@@ -43,19 +45,19 @@ const Footer = () => {
               <Link to={routesPath.privacy}>Terms</Link>
             </Links>
           </Col>
-          <Col>
+          <ColText>
             <Text>Copyright © 2021 Teache. All rights reserved</Text>
-          </Col>
-          <Col>
+          </ColText>
+          <ColBtn>
             <Buttons>
-              <Button icon={<AppleIcon />} background="blue" width={180}>
+              <Button icon={<AppleIcon />} background="blue">
                 Apple Store
               </Button>
-              <Button icon={<GoogleIcon />} background="blue" width={180}>
+              <Button icon={<GoogleIcon />} background="blue">
                 Google play
               </Button>
             </Buttons>
-          </Col>
+          </ColBtn>
         </Row>
       </Container>
     </FooterWrapper>

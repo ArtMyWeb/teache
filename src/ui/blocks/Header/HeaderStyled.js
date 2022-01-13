@@ -14,6 +14,16 @@ export const Anchor = styled.div`
   &:hover {
     color: ${themeColor("blue")};
   }
+
+  @media (max-width: 1200px) {
+    font-size: ${themeFontSize("regular")};
+  }
+  @media (max-width: 640px) {
+    font-size: ${themeFontSize("small")};
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -21,13 +31,24 @@ export const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 4px 10px 2px #00000008;
+  box-shadow: ${({ solid }) => (solid ? "0 4px 10px 2px #00000008" : "none")};
   background-color: ${({ solid, theme }) =>
     solid ? theme.colors["white"] : "transparent"};
   z-index: 99;
 `;
 
-export const Logo = styled.div``;
+export const Logo = styled.div`
+  width: 220px;
+  svg {
+    width: 100%;
+  }
+  @media (max-width: 1200px) {
+    width: 170px;
+  }
+  @media (max-width: 640px) {
+    width: 115px;
+  }
+`;
 
 export const Navigation = styled.div``;
 
@@ -36,4 +57,7 @@ export const HeaderContent = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 87px;
+  @media (max-width: 1200px) {
+    height: 70px;
+  }
 `;
