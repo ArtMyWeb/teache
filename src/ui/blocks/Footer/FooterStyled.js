@@ -25,6 +25,9 @@ export const Social = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 70px;
+  @media (max-width: 1200px) {
+    margin-right: 45px;
+  }
 `;
 
 export const SocialItem = styled.a`
@@ -35,6 +38,9 @@ export const SocialItem = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1200px) {
+    margin: 0 0 0 19px;
+  }
 `;
 
 export const Links = styled.div`
@@ -47,6 +53,13 @@ export const Links = styled.div`
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("txt")};
   }
+  @media (max-width: 1200px) {
+    justify-content: flex-start;
+    a {
+      font-size: ${themeFontSize("regular")};
+      margin: 0 11px;
+    }
+  }
 `;
 
 export const Text = styled.div`
@@ -54,6 +67,12 @@ export const Text = styled.div`
   text-align: center;
   color: ${themeColor("gray")};
   font-family: Poppins, sans-serif;
+  @media (max-width: 1200px) {
+    font-size: ${themeFontSize("extraSmall")};
+  }
+  @media (max-width: 998px) {
+    padding: 0 10px;
+  }
 `;
 
 export const Buttons = styled.div`
@@ -61,8 +80,20 @@ export const Buttons = styled.div`
   align-items: center;
   justify-content: center;
   ${ButtonStyled} {
+    width: 180px;
     &:first-child {
       margin-right: 20px;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: ${themeFontSize("extraSmall")};
+      font-weight: bold;
+      height: 44px;
+      width: 135px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
     }
   }
 `;

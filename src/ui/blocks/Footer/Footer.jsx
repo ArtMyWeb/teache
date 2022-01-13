@@ -48,10 +48,10 @@ const Footer = () => {
           </Col>
           <Col>
             <Buttons>
-              <Button icon={<AppleIcon />} background="blue" width={180}>
+              <Button icon={<AppleIcon />} background="blue">
                 Apple Store
               </Button>
-              <Button icon={<GoogleIcon />} background="blue" width={180}>
+              <Button icon={<GoogleIcon />} background="blue">
                 Google play
               </Button>
             </Buttons>
