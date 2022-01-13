@@ -4,6 +4,9 @@ import { themeColor, themeFontSize } from "../../theme";
 export const AccordionWrapper = styled.div`
   margin-top: 70px;
   padding-bottom: 160px;
+  @media (max-width: 1024px) {
+    padding: 0 40px 31px 40px;
+  }
 `;
 
 export const Title = styled.div`
@@ -11,6 +14,9 @@ export const Title = styled.div`
   color: ${themeColor("blue")};
   font-weight: 600;
   font-family: Montserrat, sans-serif;
+  @media (max-width: 1024px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const AccordionStyled = styled.div`
@@ -23,6 +29,9 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const Tabs = styled.div`
@@ -67,6 +76,9 @@ export const AccordionTitle = styled.div`
   font-weight: 700;
   cursor: pointer;
   padding-right: 40px;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
 `;
 
 export const AccordionBody = styled.div`
