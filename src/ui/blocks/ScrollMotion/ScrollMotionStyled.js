@@ -139,7 +139,8 @@ export const MainTitle = styled.div`
   @media (max-width: 640px) {
     font-size: 7.5vw;
     line-height: 10vw;
-    bottom: 50%;
+    bottom: 0;
+    transform: translate(-50%, -490%);
   }
 `;
 
@@ -177,8 +178,9 @@ export const PhonePicture = styled.div`
   @media (max-width: 640px) {
     width: 53.125vw;
     height: 115vw;
-    transform: translate(-50%, -50%) ${({ first }) => first && "scale(1.15)"};
-    bottom: ${({ first }) => (first ? "-44.6%" : "-38%")};
+    bottom: 0;
+    transform: ${({ first }) =>
+      first ? "translate(-50%, 34%) scale(1.15)" : "translate(-50%, 22%)"};
   }
 `;
 
@@ -200,8 +202,8 @@ export const PictureRowsWrapper = styled.div`
   @media (max-width: 640px) {
     width: 53.125vw;
     height: 115vw;
-    bottom: -38%;
-    transform: translate(-50%, -50%);
+    bottom: 0;
+    transform: translate(-50%, 22%);
   }
 `;
 
@@ -238,9 +240,10 @@ export const Column = styled.div`
   @media (max-width: 640px) {
     width: 56.25vw;
     top: auto;
-    bottom: 43%;
+    bottom: 0;
     left: ${({ right }) => (right ? "5%" : "auto")};
     right: ${({ left }) => (left ? "5%" : "auto")};
+    transform: translateY(-400%);
   }
 `;
 
@@ -292,6 +295,7 @@ export const Circle = styled.div`
   @media (max-width: 640px) {
     width: 126.25vw;
     height: 126.25vw;
-    bottom: -30%;
+    bottom: 0;
+    transform: translate(-50%, 40%);
   }
 `;
