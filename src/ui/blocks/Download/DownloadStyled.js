@@ -3,7 +3,17 @@ import { themeColor, themeFontSize } from "../../theme";
 import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const DownloadWrapper = styled.div`
-  padding: 0 16px 10px 16px;
+  margin-top: 90px;
+  padding: 0 16px;
+  width: 100%;
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+    margin-top: 58px;
+  }
+  @media (max-width: 640px) {
+    padding: 0 20px;
+    margin-top: 50px;
+  }
 `;
 export const ButtonRow = styled.div`
   display: flex;

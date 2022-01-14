@@ -53,7 +53,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   }}
                   onComplete={() => setHeadColor("white")}
                   onReverseComplete={() => setHeadColor("grey")}
-                  duration={0.05}
+                  duration={0.5}
                   delay={0}
                 />
                 <Tween

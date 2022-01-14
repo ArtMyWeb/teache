@@ -4,13 +4,14 @@ import { InputWrapper } from "../../base/Input/InputStyled";
 import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const NeighborhoodWrapper = styled.div`
-  margin-top: 23px;
-  padding-bottom: 60px;
+  margin-top: 68px;
   @media (max-width: 1200px) {
-    margin-top: 28px;
+    margin-top: 38px;
+    padding: 0 40px;
   }
   @media (max-width: 640px) {
-    margin-top: 20px;
+    margin-top: 30px;
+    padding: 0 20px;
   }
 `;
 
@@ -64,6 +65,8 @@ export const Form = styled.div`
     max-width: 280px;
     ${InputWrapper} {
       margin-right: 0;
+      width: 100%;
+      max-width: 280px;
     }
   }
 `;

@@ -35,6 +35,12 @@ export const HeaderWrapper = styled.div`
   background-color: ${({ solid, theme }) =>
     solid ? theme.colors["white"] : "transparent"};
   z-index: 99;
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 640px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Logo = styled.div`
