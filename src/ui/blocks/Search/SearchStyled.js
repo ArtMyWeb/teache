@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
-import { InputWrapper } from "../../base/Input/InputStyled";
+import {
+  InputIcon,
+  InputStyled,
+  InputWrapper,
+} from "../../base/Input/InputStyled";
+import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const SearchWrapper = styled.div`
   padding-top: 214px;
+  @media (max-width: 1200px) {
+    padding-top: 154px;
+  }
   @media (max-width: 768px) {
     padding-top: 34px;
   }
@@ -14,6 +22,10 @@ export const Title = styled.div`
   color: ${themeColor("txt")};
   font-weight: 600;
   font-family: Poppins, sans-serif;
+  @media (max-width: 1200px) {
+    font-size: 37px;
+    letter-spacing: -0.6px;
+  }
   @media (max-width: 768px) {
     font-size: ${themeFontSize("h5")};
   }
@@ -24,8 +36,45 @@ export const SearchBar = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 30px;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   ${InputWrapper} {
     margin-right: 20px;
+  }
+  @media (max-width: 1200px) {
+    ${InputStyled} {
+      height: 60px;
+    }
+  }
+  @media (max-width: 640px) {
+    ${ButtonStyled} {
+      height: 48px;
+    }
+  }
+  @media (max-width: 480px) {
+    flex-direction: column;
+
+    ${InputWrapper} {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    ${InputStyled} {
+      padding: 10px 20px 10px 53px;
+    }
+
+    ${InputIcon} {
+      width: 23px;
+      height: 23px;
+      left: 15px;
+    }
+
+    ${ButtonStyled} {
+      height: auto;
+      width: 100%;
+      font-weight: bold;
+      padding: 11px 20px;
+      border-radius: 5px;
+    }
   }
 `;

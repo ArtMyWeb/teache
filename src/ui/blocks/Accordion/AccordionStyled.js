@@ -11,6 +11,7 @@ export const AccordionWrapper = styled.div`
     padding: 0 20px 31px 20px;
   }
   @media (max-width: 640px) {
+    margin-top: 45px;
     padding: 0 7px 26px 7px;
   }
 `;
