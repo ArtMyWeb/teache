@@ -1,45 +1,45 @@
 import styled, { css } from "styled-components";
-import { themeColor, themeFontSize } from "../../theme";
+import { themeColor } from "../../theme";
 
 const rowsStyles = (fitness, climbing, woman, man, date, time) => {
   return css`
     left: ${fitness
-      ? "43%"
+      ? "-42%"
       : climbing
-      ? "57%"
+      ? "51.5%"
       : woman
-      ? "61%"
+      ? "51%"
       : man
-      ? "43%"
+      ? "-51.5%"
       : date
-      ? "40%"
+      ? "-34.5%"
       : time
-      ? "62%"
+      ? "47%"
       : "0"};
-    top: ${fitness
-      ? "46.5%"
+    bottom: ${fitness
+      ? "48.5%"
       : climbing
-      ? "72%"
+      ? "13.5%"
       : woman
-      ? "30.5%"
+      ? "58.5%"
       : man
-      ? "65%"
+      ? "14%"
       : date
-      ? "25.5%"
+      ? "72%"
       : time
-      ? "62%"
+      ? "17%"
       : "0"};
     width: ${fitness || climbing
-      ? "300px"
+      ? "15.625vw"
       : woman
-      ? "430px"
+      ? "22.396vw"
       : man
-      ? "370px"
+      ? "19.271vw"
       : date
-      ? "264px"
+      ? "13.750vw"
       : time
-      ? "354px"
-      : "300px"};
+      ? "18.438vw"
+      : "0"};
     @media (max-width: 1200px) {
       width: ${fitness || climbing
         ? "19vw"
@@ -52,60 +52,60 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
         : time
         ? "22.2vw"
         : "19vw"};
-      top: ${fitness
-        ? "55%"
+      bottom: ${fitness
+        ? "48.5%"
         : climbing
-        ? "75%"
+        ? "14%"
         : woman
-        ? "46%"
+        ? "58%"
         : man
-        ? "73.5%"
+        ? "13%"
         : date
-        ? "42%"
+        ? "71.5%"
         : time
-        ? "72%"
+        ? "16.5%"
         : "0"};
       left: ${fitness
-        ? "40%"
+        ? "-40%"
         : climbing
-        ? "60%"
+        ? "49%"
         : woman
-        ? "63.5%"
+        ? "50.5%"
         : man
-        ? "42%"
+        ? "-52%"
         : date
-        ? "34%"
+        ? "-33%"
         : time
-        ? "60%"
+        ? "47%"
         : "0"};
     }
     @media (max-width: 640px) {
       width: ${time ? "69.3vw" : "50vw"};
-      top: ${fitness
-        ? "76.5%"
+      bottom: ${fitness
+        ? "48.5%"
         : climbing
-        ? "92%"
+        ? "24%"
         : woman
         ? "65%"
         : man
-        ? "86%"
+        ? "34%"
         : date
-        ? "63%"
+        ? "72%"
         : time
-        ? "84%"
+        ? "22%"
         : "0"};
       left: ${fitness
-        ? "33%"
+        ? "-32%"
         : climbing
-        ? "65%"
+        ? "39%"
         : woman
-        ? "68%"
+        ? "38%"
         : man
-        ? "31%"
+        ? "-33%"
         : date
-        ? "34%"
+        ? "-29%"
         : time
-        ? "60%"
+        ? "5%"
         : "0"};
     }
   `;
@@ -114,33 +114,32 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
 export const StickyStyled = styled.div`
   overflow: hidden;
   .sticky {
-    height: 950px;
+    height: 100vh;
     width: 100%;
-    @media (max-width: 1200px) {
-      height: 100vh;
-    }
   }
 `;
 
 export const MainTitle = styled.div`
   color: ${themeColor("txt")};
-  font-size: ${themeFontSize("h1")};
+  font-size: 3.333vw;
   text-align: center;
   font-family: Poppins, Montserrat, sans-serif;
   font-weight: 600;
-  line-height: 80px;
+  line-height: 4.167vw;
   position: absolute;
   width: 100%;
-  top: 20%;
+  bottom: 70%;
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1200px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
+    bottom: 70%;
   }
   @media (max-width: 640px) {
     font-size: 7.5vw;
     line-height: 10vw;
+    bottom: 50%;
   }
 `;
 
@@ -153,13 +152,13 @@ export const PhoneWrapper = styled.div`
 export const PhonePicture = styled.div`
   border: 5px solid ${themeColor("txt")};
   border-radius: 20px;
-  width: 330px;
-  height: 712px;
+  width: 17.188vw;
+  height: 37.083vw;
   box-sizing: border-box;
   overflow: hidden;
   position: absolute;
   left: 50%;
-  top: ${({ first }) => (first ? "50%" : "10%")};
+  bottom: ${({ first }) => (first ? "-25%" : "10%")};
   transform: translateX(-50%) ${({ first }) => first && "scale(1.15)"};
   z-index: 1;
   box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
@@ -173,23 +172,37 @@ export const PhonePicture = styled.div`
   @media (max-width: 1200px) {
     width: 20.8vw;
     height: 44.8vw;
-    top: ${({ first }) => (first ? "60%" : "30%")};
+    bottom: ${({ first }) => (first ? "-30%" : "15%")};
   }
   @media (max-width: 640px) {
     width: 53.125vw;
     height: 115vw;
-    top: ${({ first }) => (first ? "60%" : "50%")};
+    transform: translate(-50%, -50%) ${({ first }) => first && "scale(1.15)"};
+    bottom: ${({ first }) => (first ? "-44.6%" : "-38%")};
   }
 `;
 
 export const PictureRowsWrapper = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17.188vw;
+  height: 37.083vw;
   z-index: 3;
   opacity: 0;
+
+  @media (max-width: 1200px) {
+    width: 20.8vw;
+    height: 44.8vw;
+    bottom: 15%;
+  }
+  @media (max-width: 640px) {
+    width: 53.125vw;
+    height: 115vw;
+    bottom: -38%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const PictureRow = styled.div`
@@ -197,7 +210,6 @@ export const PictureRow = styled.div`
   z-index: 2;
   ${({ fitness, climbing, woman, man, date, time }) =>
     rowsStyles(fitness, climbing, woman, man, date, time)}
-  transform: translateX(-50%);
   box-shadow: 4px 4px 20px 0 rgba(25, 29, 58, 0.17);
   border-radius: 10px;
   img {
@@ -209,7 +221,7 @@ export const Column = styled.div`
   color: ${({ dark, theme }) =>
     dark ? theme.colors["txt"] : theme.colors["white"]};
   position: absolute;
-  width: 310px;
+  width: 16.146vw;
   top: 50%;
   left: ${({ left }) => (left ? "16%" : "auto")};
   right: ${({ right }) => (right ? "16%" : "auto")};
@@ -225,14 +237,15 @@ export const Column = styled.div`
   }
   @media (max-width: 640px) {
     width: 56.25vw;
-    top: 30%;
+    top: auto;
+    bottom: 43%;
     left: ${({ right }) => (right ? "5%" : "auto")};
     right: ${({ left }) => (left ? "5%" : "auto")};
   }
 `;
 
 export const ColumnTitle = styled.div`
-  font-size: ${themeFontSize("h3")};
+  font-size: 1.563vw;
   font-family: Poppins, Montserrat, Roboto, "sans-serif";
   font-weight: 600;
   @media (max-width: 1200px) {
@@ -244,7 +257,7 @@ export const ColumnTitle = styled.div`
 `;
 
 export const ColumnText = styled.div`
-  font-size: ${themeFontSize("big")};
+  font-size: 1.042vw;
   font-family: Montserrat, Poppins, Roboto, "sans-serif";
   font-weight: 500;
   margin-top: 14px;
@@ -260,24 +273,25 @@ export const ColumnText = styled.div`
 
 export const Circle = styled.div`
   background-color: ${themeColor("txt")};
-  width: 776px;
-  height: 776px;
+  width: 40.417vw;
+  height: 40.417vw;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
-  top: 55%;
+  bottom: -30%;
   left: 50%;
   transform: translateX(-50%);
   transform-origin: center;
   @media (max-width: 1200px) {
     width: 40.417vw;
     height: 40.417vw;
-    top: 60%;
+    bottom: -30%;
   }
   @media (max-width: 640px) {
     width: 126.25vw;
     height: 126.25vw;
+    bottom: -30%;
   }
 `;
