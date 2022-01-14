@@ -164,7 +164,7 @@ export const AccordionSwitch = styled.div`
   transform: ${({ isOpen }) => isOpen && "scale(1, -1)"};
   @media (max-width: 768px) {
     right: 17px;
-    top: 16px;
+    top: 6px;
     width: 30px;
     height: 30px;
   }
