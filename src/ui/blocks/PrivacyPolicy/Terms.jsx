@@ -15,7 +15,7 @@ const Terms = () => {
   };
 
   useEffect(() => {
-    getElement(id);
+    id && getElement(id);
   }, [id]);
 
   return (
