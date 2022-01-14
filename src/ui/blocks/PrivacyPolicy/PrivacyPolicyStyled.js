@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
+import { HashLink } from "react-router-hash-link";
+
+export const HashLinkStyled = styled(HashLink)`
+  color: ${themeColor("blue")};
+`;
 
 export const PrivacyPolicyWrapper = styled.div`
-  padding-top: 214px;
+  margin-top: 214px;
+  padding: 0 16px;
   width: 100%;
   @media (max-width: 1024px) {
-    padding-top: 114px;
+    margin-top: 114px;
+    padding: 0 40px;
   }
   @media (max-width: 640px) {
-    padding-top: 74px;
+    margin-top: 74px;
+    padding: 0 20px;
   }
 `;
 
@@ -41,6 +49,9 @@ export const Content = styled.div`
     color: ${themeColor("black")};
     font-weight: 400;
     line-height: 27px;
+    span {
+      font-weight: 700;
+    }
     @media (max-width: 1024px) {
       line-height: 23px;
     }
@@ -48,13 +59,52 @@ export const Content = styled.div`
       font-size: 16px;
     }
   }
+  a {
+    color: ${themeColor("blue")};
+    font-size: ${themeFontSize("medium")};
+
+    @media (max-width: 1024px) {
+      line-height: 23px;
+    }
+    @media (max-width: 768px) {
+      font-size: ${themeFontSize("regular")};
+    }
+  }
+  ul {
+    padding-left: 18px;
+    li {
+      font-size: ${themeFontSize("medium")};
+      color: ${themeColor("black")};
+      font-weight: 400;
+      line-height: 27px;
+      span {
+        font-weight: 600;
+      }
+      @media (max-width: 1024px) {
+        line-height: 23px;
+      }
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+  h2 {
+    font-size: ${themeFontSize("h3")};
+  }
   strong {
     font-size: ${themeFontSize("h5")};
     line-height: 36px;
     font-weight: 600;
+    &.indent {
+      font-size: ${themeFontSize("large")};
+      line-height: 28px;
+    }
     @media (max-width: 1024px) {
       font-size: 18px;
       line-height: 34px;
+      &.indent {
+        font-size: ${themeFontSize("regular")};
+      }
     }
   }
 `;

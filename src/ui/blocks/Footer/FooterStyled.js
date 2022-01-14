@@ -5,7 +5,12 @@ import { ButtonStyled } from "../../base/Button/ButtonStyled";
 export const FooterWrapper = styled.div`
   height: 100px;
   border-top: 2px solid ${themeColor("lightBlue2")};
+  padding: 0 16px;
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+  }
   @media (max-width: 640px) {
+    padding: 0 20px;
     height: auto;
   }
 `;
@@ -22,7 +27,7 @@ export const Row = styled.div`
     padding-top: 25px;
     padding-bottom: 25px;
     flex-direction: column;
-    flex-wrap: no-wrap;
+    flex-wrap: nowrap;
   }
 `;
 
@@ -88,6 +93,15 @@ export const SocialItem = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  svg {
+    fill: ${themeColor("txt")};
+    transition: all 0.2s;
+  }
+  &:hover {
+    svg {
+      fill: ${themeColor("blue")};
+    }
+  }
   @media (max-width: 1200px) {
     margin: 0 0 0 19px;
   }
@@ -105,6 +119,9 @@ export const Links = styled.div`
     margin: 0 25px;
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("txt")};
+    &:hover {
+      color: ${themeColor("blue")};
+    }
   }
   @media (max-width: 1200px) {
     justify-content: flex-start;

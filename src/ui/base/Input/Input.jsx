@@ -17,13 +17,19 @@ export const Input = (props) => {
     size = "medium",
     type = "text",
     icon,
+    number,
+    max = "99",
   } = props;
   const inpRef = useRef(null);
   const [val, setVal] = useState(value);
 
   const onChangeHandler = (el) => {
-    setVal(el.target.value);
+    setVal(number ? el.target.value.replace(/\D/g, "") : el.target.value);
   };
+
+  useEffect(() => {
+    setVal(value);
+  }, [value]);
 
   useEffect(() => {
     setValue(val);
@@ -43,6 +49,7 @@ export const Input = (props) => {
           onChange={onChangeHandler}
           inpSize={size}
           type={type}
+          maxLength={max}
           icon={!!icon}
         />
       </InputContainer>
