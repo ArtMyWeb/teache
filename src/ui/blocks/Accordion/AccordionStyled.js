@@ -4,6 +4,9 @@ import { themeColor, themeFontSize } from "../../theme";
 export const AccordionWrapper = styled.div`
   margin-top: 70px;
   padding-bottom: 160px;
+  @media (max-width: 1200px) {
+    margin-top: 60px;
+  }
   @media (max-width: 1024px) {
     padding: 0 40px 31px 40px;
   }
@@ -11,6 +14,7 @@ export const AccordionWrapper = styled.div`
     padding: 0 20px 31px 20px;
   }
   @media (max-width: 640px) {
+    margin-top: 45px;
     padding: 0 7px 26px 7px;
   }
 `;
@@ -20,8 +24,12 @@ export const Title = styled.div`
   color: ${themeColor("blue")};
   font-weight: 600;
   font-family: Montserrat, sans-serif;
+  @media (max-width: 1200px) {
+    font-size: 24px;
+    letter-spacing: 0.2px;
+  }
   @media (max-width: 1024px) {
-    margin-bottom: 10px;
+    margin-bottom: 36px;
   }
   @media (max-width: 768px) {
     font-size: 26px;
@@ -42,7 +50,7 @@ export const AccordionStyled = styled.div`
     margin: 40px auto 0;
   }
   @media (max-width: 768px) {
-    margin: 20px auto 0;
+    margin: 35px auto 0;
   }
 `;
 
@@ -52,6 +60,7 @@ export const Header = styled.div`
   justify-content: space-between;
   @media (max-width: 1024px) {
     flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -86,7 +95,7 @@ export const Tab = styled.div`
 
   @media (max-width: 768px) {
     width: 120px;
-    padding: 12px;
+    padding: 7px;
     font-size: 12px;
   }
 `;
@@ -155,7 +164,7 @@ export const AccordionSwitch = styled.div`
   transform: ${({ isOpen }) => isOpen && "scale(1, -1)"};
   @media (max-width: 768px) {
     right: 17px;
-    top: 16px;
+    top: 6px;
     width: 30px;
     height: 30px;
   }
