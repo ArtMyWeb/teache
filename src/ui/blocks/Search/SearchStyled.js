@@ -13,7 +13,7 @@ export const SearchWrapper = styled.div`
     padding-top: 154px;
   }
   @media (max-width: 768px) {
-    padding-top: 34px;
+    padding-top: 82px;
   }
 `;
 
@@ -42,12 +42,21 @@ export const SearchBar = styled.div`
     margin-right: 20px;
   }
   @media (max-width: 1200px) {
+    max-width: 753px;
+
     ${InputStyled} {
-      height: 60px;
+      height: 48px;
+      padding: 15px 20px 15px 57px;
     }
-  }
-  @media (max-width: 640px) {
+    ${InputIcon} {
+      width: 23px;
+      height: 23px;
+      left: 19px;
+      height: 28px;
+    }
     ${ButtonStyled} {
+      font-weight: bold;
+      width: 220px;
       height: 48px;
     }
   }
