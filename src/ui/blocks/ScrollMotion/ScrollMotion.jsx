@@ -49,7 +49,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{
                     width: `${isMobile ? "300vw" : "180vw"}`,
                     height: `${isMobile ? "300vw" : "180vw"}`,
-                    bottom: `${isMobile ? "-20%" : "-70%"}`,
+                    bottom: `${isMobile ? "20%" : "-70%"}`,
                   }}
                   onComplete={() => setHeadColor("white")}
                   onReverseComplete={() => setHeadColor("grey")}
@@ -181,8 +181,9 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 >
                   <Tween
                     to={{
-                      bottom: `${isMobile ? "-38%" : isTablet ? "15%" : "10%"}`,
+                      bottom: `${isMobile ? "0" : isTablet ? "15%" : "10%"}`,
                       scale: "1",
+                      y: `${isMobile && "22%"}`,
                     }}
                     target={0}
                   />
