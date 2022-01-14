@@ -37,7 +37,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
             <div className="sticky">
               {/* Title */}
               <Timeline totalProgress={progress} paused>
-                <Tween to={{ top: "-50%" }}>
+                <Tween to={{ bottom: "50%" }}>
                   <MainTitle>
                     Learn Something <br /> New Today
                   </MainTitle>
@@ -49,7 +49,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{
                     width: `${isMobile ? "300vw" : "180vw"}`,
                     height: `${isMobile ? "300vw" : "180vw"}`,
-                    top: "-30%",
+                    bottom: `${isMobile ? "-20%" : "-70%"}`,
                   }}
                   onComplete={() => setHeadColor("white")}
                   onReverseComplete={() => setHeadColor("grey")}
@@ -57,15 +57,15 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   delay={0}
                 />
                 <Tween
-                  to={{ background: theme.colors["pink"], delay: 0.2 }}
-                  duration={0.5}
+                  to={{ background: theme.colors["pink"], delay: 0.5 }}
+                  duration={0.2}
                   onStart={() => setHeadColor("white")}
                   onReverseComplete={() => {
                     setHeadColor("white");
                   }}
                 />
                 <Tween
-                  to={{ background: theme.colors["white"], delay: 0 }}
+                  to={{ background: theme.colors["white"], delay: 1 }}
                   duration={0.5}
                   onComplete={() => {
                     setHeadColor("grey");
@@ -181,22 +181,20 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 >
                   <Tween
                     to={{
-                      top: `${isMobile ? "50%" : isTablet ? "30%" : "10%"}`,
+                      bottom: `${isMobile ? "-38%" : isTablet ? "15%" : "10%"}`,
                       scale: "1",
                     }}
                     target={0}
                   />
                   <Tween duration="30%" to={{ opacity: 1 }} target={0} />
                   <Tween
-                    to={{ opacity: 0, delay: 2 }}
-                    target={0}
-                    duration="10%"
+                    from={{ opacity: 0 }}
+                    to={{ opacity: 1, delay: 0.5 }}
+                    target={1}
                   />
-                  <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} target={1} />
-                  <Tween to={{ opacity: 0, delay: 2 }} target={1} />
                   <Tween
                     from={{ opacity: 0 }}
-                    to={{ opacity: 1 }}
+                    to={{ opacity: 1, delay: 1 }}
                     target={2}
                     duration={1}
                   />
