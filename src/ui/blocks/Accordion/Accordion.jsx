@@ -126,7 +126,7 @@ const Accordion = () => {
     }
 
     setOpenItems([]);
-  }, [setOpenItems]);
+  }, [setOpenItems, faqtab]);
 
   const handleItemClick = (itemId) => {
     setOpenItems((prev) => {
