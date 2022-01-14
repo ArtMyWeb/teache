@@ -2,9 +2,15 @@ import styled from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
 
 export const InfoWrapper = styled.div`
-  padding: 70px 16px 45px 16px;
-  @media (max-width: 768px) {
-    padding: 25px 20px 20px;
+  padding: 0 16px;
+  margin-top: 140px;
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+    margin-top: 75px;
+  }
+  @media (max-width: 640px) {
+    padding: 0 20px;
+    margin-top: 50px;
   }
 `;
 

@@ -19,6 +19,7 @@ import fightPic from "../../../static/pictures/fight.jpeg";
 import swordsPic from "../../../static/pictures/swords.jpeg";
 import yogaPic from "../../../static/pictures/yoga.jpeg";
 import { useMediaQuery } from "react-responsive";
+import { theme } from "../../theme/default";
 
 const Gallery = () => {
   const horsePicRef = useRef();
@@ -28,7 +29,7 @@ const Gallery = () => {
   const yogaPicRef = useRef();
 
   const isTablet = useMediaQuery({ query: "(max-width: 1300px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
 
   useEffect(() => {
     const images = [];
@@ -54,6 +55,22 @@ const Gallery = () => {
       <Container>
         <Row>
           <Col mr={isTablet ? 78 : 130}>
+            {isMobile && (
+              <Content
+                style={{
+                  marginBottom: isTablet ? 48 : 120,
+                  marginTop: isTablet ? 13 : 50,
+                }}
+              >
+                <Title>
+                  Share Your Talents <br />& Become a Teacher
+                </Title>
+                <Text>
+                  Join our instructors' network and give classes in your
+                  neighborhood
+                </Text>
+              </Content>
+            )}
             <ImageWrapper
               ref={horsePicRef}
               width={isTablet ? 412 : 640}
@@ -61,19 +78,6 @@ const Gallery = () => {
             >
               <ImageStyled high="true" src={horsePic} alt="horse" />
             </ImageWrapper>
-            {!isMobile && (
-              <Content
-                style={{
-                  marginBottom: isTablet ? 42 : 65,
-                  marginTop: isTablet ? 15 : 20,
-                }}
-              >
-                <Text width={340}>
-                  Choose your own locations for your class, your home, public
-                  park, anywhere you can teach
-                </Text>
-              </Content>
-            )}
           </Col>
           <Col>
             {!isMobile && (
@@ -83,7 +87,9 @@ const Gallery = () => {
                   marginTop: isTablet ? 13 : 50,
                 }}
               >
-                <Title>Share Your Talents  & Become a Teacher</Title>
+                <Title>
+                  Share Your Talents <br />& Become a Teacher
+                </Title>
                 <Text>
                   Join our instructors' network and give classes in your
                   neighborhood
@@ -106,6 +112,19 @@ const Gallery = () => {
         </Row>
         <Row>
           <Col mr={isTablet ? 58 : 130}>
+            {isMobile && (
+              <Content
+                style={{
+                  marginBottom: isTablet ? 42 : 65,
+                  marginTop: isTablet ? 15 : 20,
+                }}
+              >
+                <Text width={340}>
+                  Choose your own locations for your class, your home, public
+                  park, anywhere you can teach
+                </Text>
+              </Content>
+            )}
             <ImageWrapper
               ref={fightPicRef}
               width={isTablet ? 317 : 470}
@@ -114,11 +133,17 @@ const Gallery = () => {
             >
               <ImageStyled wide="true" src={fightPic} alt="fight" />
             </ImageWrapper>
-            {!isMobile && (
+            {!isMobile ? (
               <Content style={{ marginTop: isTablet ? 65 : 140 }}>
                 <Text>
                   Receive payments through the app and keep track of your
                   revenue
+                </Text>
+              </Content>
+            ) : (
+              <Content style={{ marginBottom: isTablet ? 54 : 140 }}>
+                <Text big>
+                  Manage your own schedule and give classes whenever you feel to
                 </Text>
               </Content>
             )}
@@ -126,7 +151,9 @@ const Gallery = () => {
           <Col>
             {!isMobile && (
               <Content style={{ marginBottom: isTablet ? 54 : 140 }}>
-                <Text>
+                <Text
+                  style={isMobile ? { fontSize: theme.fonts["regular"] } : {}}
+                >
                   Manage your own schedule and give classes whenever you feel to
                 </Text>
               </Content>
@@ -146,12 +173,24 @@ const Gallery = () => {
           </Col>
         </Row>
         <Row>
+          {isMobile && (
+            <Content style={{ marginTop: isTablet ? 65 : 140 }}>
+              <Text big>
+                Receive payments through the app and keep track of your revenue
+              </Text>
+            </Content>
+          )}
           <ImageWrapper
             ref={yogaPicRef}
             height={isTablet ? 446 : isMobile ? 268 : 630}
             style={{ marginTop: isTablet ? 55 : 85 }}
           >
-            <ImageStyled wide="true" src={yogaPic} alt="yoga" />
+            <ImageStyled
+              high={isMobile}
+              wide={!isMobile}
+              src={yogaPic}
+              alt="yoga"
+            />
           </ImageWrapper>
         </Row>
       </Container>

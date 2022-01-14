@@ -10,6 +10,7 @@ import {
 } from "./HeaderStyled";
 import { Link } from "react-router-dom";
 import { routesPath } from "../../../conts/routes";
+import { HashLink } from "react-router-hash-link";
 
 const Header = ({ solid, color }) => {
   return (
@@ -25,7 +26,9 @@ const Header = ({ solid, color }) => {
             <Link to={routesPath.faq}>
               <Anchor color={color}>FAQ</Anchor>
             </Link>
-            <Anchor color={color}>Download</Anchor>
+            <HashLink to={`${routesPath.main}#download`}>
+              <Anchor color={color}>Download</Anchor>
+            </HashLink>
           </Navigation>
         </HeaderContent>
       </Container>
