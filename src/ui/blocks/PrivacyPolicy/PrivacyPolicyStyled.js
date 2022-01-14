@@ -50,13 +50,24 @@ export const Content = styled.div`
     font-weight: 400;
     line-height: 27px;
     span {
-      font-weight: 600;
+      font-weight: 700;
     }
     @media (max-width: 1024px) {
       line-height: 23px;
     }
     @media (max-width: 768px) {
       font-size: 16px;
+    }
+  }
+  a {
+    color: ${themeColor("blue")};
+    font-size: ${themeFontSize("medium")};
+
+    @media (max-width: 1024px) {
+      line-height: 23px;
+    }
+    @media (max-width: 768px) {
+      font-size: ${themeFontSize("regular")};
     }
   }
   ul {
@@ -77,13 +88,23 @@ export const Content = styled.div`
       }
     }
   }
+  h2 {
+    font-size: ${themeFontSize("h3")};
+  }
   strong {
     font-size: ${themeFontSize("h5")};
     line-height: 36px;
     font-weight: 600;
+    &.indent {
+      font-size: ${themeFontSize("large")};
+      line-height: 28px;
+    }
     @media (max-width: 1024px) {
       font-size: 18px;
       line-height: 34px;
+      &.indent {
+        font-size: ${themeFontSize("regular")};
+      }
     }
   }
 `;
