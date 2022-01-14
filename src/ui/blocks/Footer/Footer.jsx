@@ -41,8 +41,8 @@ const Footer = () => {
               </SocialItem>
             </Social>
             <Links>
-              <Link to={routesPath.privacy}>Privacy</Link>
-              <Link to={routesPath.privacy}>Terms</Link>
+              <Link to={`${routesPath.privacy}?tab=privacy`}>Privacy</Link>
+              <Link to={`${routesPath.privacy}?tab=terms`}>Terms</Link>
             </Links>
           </Col>
           <ColText>
