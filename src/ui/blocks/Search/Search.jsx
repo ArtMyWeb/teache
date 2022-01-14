@@ -5,8 +5,9 @@ import { SearchBar, SearchWrapper, Title } from "./SearchStyled";
 import { Container } from "../../base/Container";
 import { Button } from "../../base/Button";
 
-const Search = () => {
+const Search = ({ onSearchSubmit }) => {
   const [query, setQuery] = useState("");
+  const handleSubmitSearch = () => onSearchSubmit(query);
 
   return (
     <SearchWrapper>
@@ -19,7 +20,7 @@ const Search = () => {
             value={query}
             placeholder="Type your question"
           />
-          <Button background="blue" width={173}>
+          <Button onClick={handleSubmitSearch} background="blue" width={173}>
             Search
           </Button>
         </SearchBar>

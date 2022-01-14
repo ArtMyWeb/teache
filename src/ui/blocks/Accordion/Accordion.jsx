@@ -18,6 +18,7 @@ import { routesPath } from "../../../conts/routes";
 import { Container } from "../../base/Container";
 import { MinusIcon, PlusIcon } from "../../icons";
 import { instructorsFaq, usersFaq } from "./faqLists";
+import { KeyWords } from "./KeyWords";
 
 const makeOpenItemId = (index, id) => `${index}_${id}`;
 
@@ -46,13 +47,59 @@ const FaqAccordion = ({ openItems, handleItemClick, array }) =>
     });
   }, [openItems, array]);
 
-const Accordion = () => {
+const Accordion = ({ filterBySearch }) => {
   const [openItems, setOpenItems] = useState([]);
   const [activeTab, setActive] = useState({ users: true, instructors: false });
+  const [usersFAQ, setUsersFAQ] = useState(usersFaq);
+  const [instructorsFAQ, setInstructorsFAQ] = useState(instructorsFaq);
+  const [filterData, setFilterData] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
   const { faqtab } = queryString.parse(location.search);
+
+  const searchStringInArray = (itemOfSearch, keyWord) => {
+    for (let item of keyWord) {
+      return itemOfSearch.title?.toLowerCase().includes(item);
+    }
+  };
+
+  const MemoizationDataForFAQ = () => {
+    if (filterData.length > 0) {
+      return filterData;
+    } else {
+      return activeTab.users ? usersFAQ : instructorsFAQ;
+    }
+  };
+
+  const isKeyWordRequired = () => {
+    if (activeTab.users) {
+      return KeyWords.user.find((el) => el.includes(filterBySearch.join(" ")));
+    } else {
+      return KeyWords.instructors.find((el) =>
+        el.includes(filterBySearch.join(" "))
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (filterBySearch?.length > 0) {
+      const filterData = [];
+      if (isKeyWordRequired()) {
+        if (activeTab.users) {
+          for (let item of usersFaq) {
+            searchStringInArray(item, filterBySearch) && filterData.push(item);
+          }
+          setUsersFAQ(filterData.length > 0 ? filterData : []);
+        } else {
+          for (let item of instructorsFaq) {
+            searchStringInArray(item, filterBySearch) && filterData.push(item);
+          }
+          setInstructorsFAQ(filterData.length > 0 ? filterData : []);
+        }
+      }
+    }
+  }, [filterBySearch]);
 
   useEffect(() => {
     if (faqtab === "1") {
@@ -104,7 +151,7 @@ const Accordion = () => {
           <FaqAccordion
             openItems={openItems}
             handleItemClick={handleItemClick}
-            array={activeTab.users ? usersFaq : instructorsFaq}
+            array={MemoizationDataForFAQ()}
           />
         </AccordionStyled>
       </Container>

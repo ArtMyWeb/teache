@@ -11,6 +11,7 @@ export const Button = (props) => {
     center,
     width,
     children,
+    onClick
   } = props;
   return (
     <ButtonStyled
@@ -20,6 +21,7 @@ export const Button = (props) => {
       size={size}
       transparent={transparent}
       width={width}
+      onClick={onClick}
     >
       {icon && icon}
       {children}
