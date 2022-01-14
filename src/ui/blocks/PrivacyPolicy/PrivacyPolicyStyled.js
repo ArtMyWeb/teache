@@ -4,6 +4,12 @@ import { themeColor, themeFontSize } from "../../theme";
 export const PrivacyPolicyWrapper = styled.div`
   padding-top: 214px;
   width: 100%;
+  @media (max-width: 1024px) {
+    padding-top: 114px;
+  }
+  @media (max-width: 640px) {
+    padding-top: 74px;
+  }
 `;
 
 export const Body = styled.div`
@@ -14,6 +20,10 @@ export const Body = styled.div`
     margin-top: 66px;
     padding-bottom: 72px;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 22px;
+  }
 `;
 
 export const Content = styled.div`
@@ -23,6 +33,9 @@ export const Content = styled.div`
   @media (max-width: 1024px) {
     margin-left: 40px;
   }
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
   p {
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("black")};
@@ -30,6 +43,9 @@ export const Content = styled.div`
     line-height: 27px;
     @media (max-width: 1024px) {
       line-height: 23px;
+    }
+    @media (max-width: 768px) {
+      font-size: 16px;
     }
   }
   strong {
@@ -50,6 +66,10 @@ export const Title = styled.div`
   font-family: Poppins, sans-serif;
   @media (max-width: 1024px) {
     font-size: 36px;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+    letter-spacing: -0.8px;
   }
 `;
 
@@ -96,6 +116,18 @@ export const SideBarItem = styled.div`
     margin-bottom: 20px;
     &:before {
       height: 69px;
+    }
+  }
+  @media (max-width: 768px) {
+    height: 49px;
+    padding-left: 0;
+    border-radius: 0 3px 3px 0;
+    letter-spacing: -0.8px;
+    margin-bottom: 5px;
+    ${({ active, theme }) =>
+      active && `border-right: 10px solid ${theme.colors["blue"]}`};
+    &:before {
+      height: 49px;
     }
   }
 `;
