@@ -1,0 +1,1 @@
+const privacy_policy = {};
