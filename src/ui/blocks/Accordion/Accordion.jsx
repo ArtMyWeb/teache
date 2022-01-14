@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
+import queryString from "query-string";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   AccordionSwitch,
   AccordionBody,
@@ -12,6 +14,7 @@ import {
   Tab,
   Header,
 } from "./AccordionStyled";
+import { routesPath } from "../../../conts/routes";
 import { Container } from "../../base/Container";
 import { MinusIcon, PlusIcon } from "../../icons";
 
@@ -110,9 +113,20 @@ const FaqAccordion = ({ openItems, handleItemClick, array }) =>
 const Accordion = () => {
   const [openItems, setOpenItems] = useState([]);
   const [activeTab, setActive] = useState({ users: true, instructors: false });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { faqtab } = queryString.parse(location.search);
+
   useEffect(() => {
+    if (faqtab === "1") {
+      setActive({ users: true, instructors: false });
+    } else {
+      setActive({ users: false, instructors: true });
+    }
+
     setOpenItems([]);
-  }, []);
+  }, [setOpenItems]);
 
   const handleItemClick = (itemId) => {
     setOpenItems((prev) => {
@@ -125,22 +139,27 @@ const Accordion = () => {
       return next;
     });
   };
+
+  const handleClickFirstTab = () => {
+    setActive({ users: true, instructors: false });
+    navigate(`${routesPath.faq}?tab=1`, { replace: true });
+  };
+
+  const handleClickSecondtTab = () => {
+    setActive({ users: false, instructors: true });
+    navigate(`${routesPath.faq}?tab=2`, { replace: true });
+  };
+
   return (
     <AccordionWrapper>
       <Container>
         <Header>
           <Title>Most frequently asked questions</Title>
           <Tabs>
-            <Tab
-              active={activeTab.users}
-              onClick={() => setActive({ users: true, instructors: false })}
-            >
+            <Tab active={activeTab.users} onClick={handleClickFirstTab}>
               Users
             </Tab>
-            <Tab
-              active={activeTab.instructors}
-              onClick={() => setActive({ users: false, instructors: true })}
-            >
+            <Tab active={activeTab.instructors} onClick={handleClickSecondtTab}>
               Instructors
             </Tab>
           </Tabs>
