@@ -1,5 +1,5 @@
 export const KeyWords = {
-  user: [
+  instructors: [
     "available",
     "become",
     "book",
@@ -26,7 +26,7 @@ export const KeyWords = {
     "track",
     "want",
   ],
-  instructors: [
+  user: [
     "book",
     "cancel",
     "cancellation",

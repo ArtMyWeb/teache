@@ -58,10 +58,18 @@ const Accordion = ({ filterBySearch }) => {
   const navigate = useNavigate();
   const { faqtab } = queryString.parse(location.search);
 
-  const searchStringInArray = (itemOfSearch, keyWord) => {
-    for (let item of keyWord) {
-      return itemOfSearch.title?.toLowerCase().includes(item);
+  const searchStringInArray = (baseData, searchedItem) => {
+    const filterData = [];
+    for (let item of baseData) {
+      for (let keyWord of searchedItem) {
+        if (keyWord.length > 0) {
+          if (item?.title?.toLowerCase()?.includes(keyWord)) {
+            filterData.push(item);
+          }
+        }
+      }
     }
+    return [...new Set(filterData)];
   };
 
   const MemoizationDataForFAQ = () => {
@@ -72,31 +80,42 @@ const Accordion = ({ filterBySearch }) => {
     }
   };
 
+  const checkMatch = (keywords, searchData) => {
+    let isSearched = false;
+    for (let i = 0; i < keywords.length; i++) {
+      for (let j = 0; j < searchData.length; j++) {
+        if (keywords[i] === searchData[j]) {
+          return (isSearched = true);
+        }
+      }
+    }
+    return isSearched;
+  };
+
+  const resetSearch = () => {
+    setFilterData([]);
+    setInstructorsFAQ(instructorsFaq);
+    setUsersFAQ(usersFaq);
+  };
+
   const isKeyWordRequired = () => {
     if (activeTab.users) {
-      return KeyWords.user.find((el) => el.includes(filterBySearch.join(" ")));
+      filterBySearch.length <= 1 && resetSearch();
+      return checkMatch(KeyWords.user, filterBySearch);
     } else {
-      return KeyWords.instructors.find((el) =>
-        el.includes(filterBySearch.join(" "))
-      );
+      filterBySearch.length <= 1 && resetSearch();
+      return checkMatch(KeyWords.instructors, filterBySearch);
     }
   };
 
   useEffect(() => {
-    if (filterBySearch?.length > 0) {
-      const filterData = [];
-      if (isKeyWordRequired()) {
-        if (activeTab.users) {
-          for (let item of usersFaq) {
-            searchStringInArray(item, filterBySearch) && filterData.push(item);
-          }
-          setUsersFAQ(filterData.length > 0 ? filterData : []);
-        } else {
-          for (let item of instructorsFaq) {
-            searchStringInArray(item, filterBySearch) && filterData.push(item);
-          }
-          setInstructorsFAQ(filterData.length > 0 ? filterData : []);
-        }
+    if (isKeyWordRequired()) {
+      if (activeTab.users) {
+        const mathArray = searchStringInArray(usersFaq, filterBySearch);
+        mathArray.length > 0 && setFilterData(mathArray);
+      } else {
+        const mathArray = searchStringInArray(instructorsFaq, filterBySearch);
+        mathArray.length > 0 && setFilterData(mathArray);
       }
     }
   }, [filterBySearch]);
@@ -124,11 +143,13 @@ const Accordion = ({ filterBySearch }) => {
   };
 
   const handleClickFirstTab = () => {
+    filterBySearch.length <= 1 && resetSearch();
     setActive({ users: true, instructors: false });
     navigate(`${routesPath.faq}?tab=1`, { replace: true });
   };
 
   const handleClickSecondtTab = () => {
+    filterBySearch.length <= 1 && resetSearch();
     setActive({ users: false, instructors: true });
     navigate(`${routesPath.faq}?tab=2`, { replace: true });
   };
