@@ -162,7 +162,7 @@ export const PhonePicture = styled.div`
   bottom: ${({ first }) => (first ? "-25%" : "10%")};
   transform: translateX(-50%) ${({ first }) => first && "scale(1.15)"};
   z-index: 1;
-  box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
+  //box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
   img {
     width: 100%;
     height: 100%;
@@ -212,10 +212,11 @@ export const PictureRow = styled.div`
   z-index: 2;
   ${({ fitness, climbing, woman, man, date, time }) =>
     rowsStyles(fitness, climbing, woman, man, date, time)}
-  box-shadow: 4px 4px 20px 0 rgba(25, 29, 58, 0.17);
   border-radius: 10px;
   img {
     width: 100%;
+    box-shadow: 4px 4px 20px 0 rgba(25, 29, 58, 0.17);
+    border-radius: 10px;
   }
 `;
 

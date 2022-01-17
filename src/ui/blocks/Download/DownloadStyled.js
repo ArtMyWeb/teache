@@ -40,6 +40,7 @@ export const Title = styled.div`
   font-family: Poppins, sans-serif;
   font-weight: 700;
   margin-bottom: 30px;
+  line-height: 1.25;
   text-align: center;
   @media (max-width: 1200px) {
     font-size: 36px;
