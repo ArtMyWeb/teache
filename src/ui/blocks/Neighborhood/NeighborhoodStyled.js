@@ -32,13 +32,16 @@ export const Title = styled.div`
   color: ${themeColor("txt")};
   font-size: ${themeFontSize("large")};
   font-family: Montserrat, sans-serif;
+  font-weight: normal;
   line-height: 1.5;
   max-width: 370px;
   margin: 0 auto;
   @media (max-width: 1200px) {
     max-width: 100%;
     font-size: ${themeFontSize("regular")};
-    font-weight: 400;
+  }
+  @media (max-width: 640px) {
+    max-width: 280px;
   }
 `;
 
@@ -51,8 +54,10 @@ export const Form = styled.div`
   margin: 50px auto 0;
   ${InputWrapper} {
     margin-right: 20px;
+    max-width: 329px;
   }
   @media (max-width: 1200px) {
+    margin: 30px auto 0;
     ${InputWrapper} {
       margin-right: 10px;
       max-width: 264px;
@@ -61,7 +66,6 @@ export const Form = styled.div`
   }
   @media (max-width: 640px) {
     flex-wrap: wrap;
-    margin: 30px auto 0;
     max-width: 280px;
     ${InputWrapper} {
       margin-right: 0;

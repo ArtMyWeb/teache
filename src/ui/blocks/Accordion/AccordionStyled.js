@@ -5,9 +5,6 @@ export const AccordionWrapper = styled.div`
   margin-top: 70px;
   padding-bottom: 160px;
   @media (max-width: 1200px) {
-    margin-top: 60px;
-  }
-  @media (max-width: 1024px) {
     padding: 0 40px 31px 40px;
   }
   @media (max-width: 768px) {
@@ -15,7 +12,6 @@ export const AccordionWrapper = styled.div`
   }
   @media (max-width: 640px) {
     margin-top: 45px;
-    padding: 0 7px 26px 7px;
   }
 `;
 
@@ -38,7 +34,6 @@ export const Title = styled.div`
   @media (max-width: 640px) {
     font-size: 16px;
     text-align: center;
-    font-weight: bold;
   }
 `;
 
@@ -67,6 +62,9 @@ export const Header = styled.div`
 export const Tabs = styled.div`
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Tab = styled.div`
@@ -94,7 +92,7 @@ export const Tab = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 120px;
+    width: 50%;
     padding: 7px;
     font-size: 12px;
   }
@@ -108,8 +106,9 @@ export const AccordionItem = styled.div`
   padding: 30px;
   border: 2px solid ${themeColor("lightBlue2")};
   border-radius: 10px;
+  min-height: 76px;
   @media (max-width: 768px) {
-    padding: 10px 15px;
+    padding: 17px 20px;
   }
 `;
 
@@ -125,6 +124,7 @@ export const AccordionTitle = styled.div`
   }
   @media (max-width: 768px) {
     font-size: 14px;
+    font-weight: 500;
   }
 `;
 
@@ -163,8 +163,8 @@ export const AccordionSwitch = styled.div`
   transition: all 0.2s;
   transform: ${({ isOpen }) => isOpen && "scale(1, -1)"};
   @media (max-width: 768px) {
-    right: 17px;
-    top: 6px;
+    right: 20px;
+    top: 23px;
     width: 30px;
     height: 30px;
   }

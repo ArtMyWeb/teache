@@ -4,6 +4,8 @@ import { themeColor, themeFontSize } from "../../theme";
 export const Anchor = styled.div`
   cursor: pointer;
   display: inline-flex;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
   font-size: ${themeFontSize("medium")};
   color: ${({ color, theme }) =>
     color ? theme.colors[color] : theme.colors["txt"]};
@@ -37,6 +39,7 @@ export const HeaderWrapper = styled.div`
   z-index: 99;
   @media (max-width: 1200px) {
     padding: 0 40px;
+    box-shadow: none;
   }
   @media (max-width: 640px) {
     padding: 0 20px;

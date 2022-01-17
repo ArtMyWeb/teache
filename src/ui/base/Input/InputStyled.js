@@ -36,9 +36,11 @@ export const InputStyled = styled.input`
   font-size: ${themeFontSize("regular")};
   border: 1px solid ${themeColor("lightBlue")};
   outline: none;
+  font-family: Montserrat, sans-serif;
   border-radius: 10px;
   &::placeholder {
     color: ${themeColor("gray")};
+    font-weight: 400;
   }
   @media (max-width: 1200px) {
     font-size: ${themeFontSize("small")};

@@ -71,7 +71,7 @@ export const Content = styled.div`
     }
   }
   ul {
-    padding-left: 18px;
+    padding-left: 36px;
     li {
       font-size: ${themeFontSize("medium")};
       color: ${themeColor("black")};
@@ -162,7 +162,6 @@ export const SideBarItem = styled.div`
     width: 100%;
     height: 69px;
     font-size: 18px;
-    padding-left: 30px;
     margin-bottom: 20px;
     &:before {
       height: 69px;

@@ -50,14 +50,14 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     width: `${isMobile ? "300vw" : "180vw"}`,
                     height: `${isMobile ? "300vw" : "180vw"}`,
                     bottom: `${isMobile ? "20%" : "-70%"}`,
+                    delay: 0,
                   }}
                   onComplete={() => setHeadColor("white")}
                   onReverseComplete={() => setHeadColor("grey")}
                   duration={0.5}
-                  delay={0}
                 />
                 <Tween
-                  to={{ background: theme.colors["pink"], delay: 0.5 }}
+                  to={{ background: theme.colors["pink"] }}
                   duration={0.2}
                   onStart={() => setHeadColor("white")}
                   onReverseComplete={() => {
@@ -65,8 +65,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   }}
                 />
                 <Tween
-                  to={{ background: theme.colors["white"], delay: 1 }}
-                  duration={0.5}
+                  to={{ background: theme.colors["white"], delay: 0.5 }}
                   onComplete={() => {
                     setHeadColor("grey");
                     setHeadSolid(true);
@@ -115,10 +114,11 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{ opacity: 1, delay: 2 }}
                   target={0}
                 />
-                <Tween to={{ opacity: 0, delay: 2 }} target={0} />
+                <Tween to={{ opacity: 0, delay: 1.2 }} target={0} />
                 <Tween to={{ opacity: 1, delay: 1.5 }} target={1} />
                 <Tween to={{ opacity: 0, delay: 1 }} target={1} />
-                <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
+                <Tween to={{ opacity: 1, delay: 1 }} target={2} />
+                <Tween to={{ y: 0, delay: 4 }} target={2} />
               </Timeline>
               {/* Text columns */}
               <Timeline
@@ -155,10 +155,11 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{ opacity: 1, delay: 2 }}
                   target={0}
                 />
-                <Tween to={{ opacity: 0, delay: 2 }} target={0} />
+                <Tween to={{ opacity: 0, delay: 1.5 }} target={0} />
                 <Tween to={{ opacity: 1, delay: 1.5 }} target={1} />
-                <Tween to={{ opacity: 0, delay: 1 }} target={1} />
-                <Tween to={{ opacity: 1, delay: 0.5 }} target={2} />
+                <Tween to={{ opacity: 0, delay: 3 }} target={1} />
+                <Tween to={{ opacity: 1, delay: 3 }} target={2} />
+                {isMobile && <Tween to={{ y: "-500%", delay: 4 }} target={2} />}
               </Timeline>
               {/* Phone images */}
               <PhoneWrapper>
@@ -187,18 +188,20 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     }}
                     target={0}
                   />
-                  <Tween duration="30%" to={{ opacity: 1 }} target={0} />
+
                   <Tween
                     from={{ opacity: 0 }}
-                    to={{ opacity: 1, delay: 0.5 }}
+                    to={{ opacity: 1, delay: 4 }}
                     target={1}
                   />
+                  <Tween to={{ opacity: 0, delay: 2 }} target={0} />
                   <Tween
                     from={{ opacity: 0 }}
-                    to={{ opacity: 1, delay: 1 }}
+                    to={{ opacity: 1, delay: 1.5 }}
                     target={2}
-                    duration={1}
                   />
+                  <Tween to={{ opacity: 0, delay: 1.5 }} target={1} />
+                  <Tween to={{ y: 0, delay: 1 }} target={2} />
                 </Timeline>
               </PhoneWrapper>
             </div>
