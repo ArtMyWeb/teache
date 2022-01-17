@@ -14,19 +14,25 @@
 @font-face {
     font-family: Montserrat;
     src: url("../static/fonts/Montserrat-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../static/fonts/Montserrat-SemiBold.ttf") format("truetype");
     font-weight: 600;
 }
 
 @font-face {
     font-family: Poppins;
     src: url("../static/fonts/Poppins-Medium.ttf") format("truetype");
-    font-weight: 600;
+    font-weight: 500;
 }
 
 @font-face {
     font-family: Poppins;
     src: url("../static/fonts/Poppins-SemiBold.ttf") format("truetype");
-    font-weight: 700;
+    font-weight: 600;
 }
 
 @font-face {

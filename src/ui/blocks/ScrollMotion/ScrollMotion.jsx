@@ -59,10 +59,14 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 <Tween
                   to={{ background: theme.colors["pink"] }}
                   duration={0.2}
-                  onStart={() => setHeadColor("white")}
+                  onStart={() => {
+                    setHeadColor("white");
+                    setHeadSolid(false);
+                  }}
                   onReverseComplete={() => {
                     setHeadColor("white");
                   }}
+                  onRepeat={() => setHeadSolid(false)}
                 />
                 <Tween
                   to={{ background: theme.colors["white"], delay: 0.5 }}
@@ -199,6 +203,9 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     from={{ opacity: 0 }}
                     to={{ opacity: 1, delay: 1.5 }}
                     target={2}
+                    onStart={() => {
+                      setHeadColor("grey");
+                    }}
                   />
                   <Tween to={{ opacity: 0, delay: 1.5 }} target={1} />
                   <Tween to={{ y: 0, delay: 1 }} target={2} />

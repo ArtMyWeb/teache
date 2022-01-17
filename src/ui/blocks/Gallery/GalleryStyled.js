@@ -16,14 +16,6 @@ export const GalleryWrapper = styled.div`
   }
 `;
 
-export const Row = styled.div`
-  display: flex;
-  width: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
 export const Col = styled.div`
   display: flex;
   flex-direction: column;
@@ -116,7 +108,7 @@ export const ImageStyled = styled.img`
   top: 50%;
   left: 50%;
   transition: all 0.5s ease-in-out;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.2);
 `;
 
 const styleImages = (horse, volleyball, fight, swords, yoga) => {
@@ -194,7 +186,7 @@ export const ImageWrapper = styled.div`
   ${({ horse, volleyball, fight, swords, yoga }) =>
     styleImages(horse, volleyball, fight, swords, yoga)};
   margin: ${({ margin }) => (margin ? margin : "")};
-  &:after {
+  &:before {
     content: "";
     width: 100%;
     height: 100%;
@@ -202,15 +194,47 @@ export const ImageWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 50%;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s cubic-bezier(0.6, 0.05, 0.01, 0.99);
     transform: translateX(-50%);
+    z-index: 2;
   }
-  &.active {
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: ${themeColor("txt")};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 1.3s cubic-bezier(0.6, 0.05, 0.01, 0.99);
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+  }
+  &.light {
     &:after {
-      top: -100%;
+      opacity: 0;
     }
   }
+
   @media (max-width: 480px) {
     max-width: 100%;
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  width: 100%;
+  &.active {
+    ${ImageWrapper} {
+      &:before {
+        top: -100%;
+      }
+    }
+    ${ImageStyled} {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
