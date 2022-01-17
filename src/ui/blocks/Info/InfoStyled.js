@@ -5,11 +5,11 @@ export const InfoWrapper = styled.div`
   padding: 0 16px;
   margin-top: 140px;
   @media (max-width: 1200px) {
-    padding: 0 40px;
+    padding: 0 30px;
     margin-top: 75px;
   }
   @media (max-width: 640px) {
-    padding: 0 20px;
+    padding: 0 50px;
     margin-top: 50px;
   }
 `;

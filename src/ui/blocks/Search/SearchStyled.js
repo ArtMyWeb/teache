@@ -10,10 +10,10 @@ import { ButtonStyled } from "../../base/Button/ButtonStyled";
 export const SearchWrapper = styled.div`
   padding-top: 214px;
   @media (max-width: 1200px) {
-    padding-top: 154px;
+    padding: 154px 40px 0;
   }
   @media (max-width: 768px) {
-    padding-top: 82px;
+    padding: 82px 20px 0 20px;
   }
 `;
 
@@ -52,7 +52,6 @@ export const SearchBar = styled.div`
       width: 23px;
       height: 23px;
       left: 19px;
-      height: 28px;
     }
     ${ButtonStyled} {
       font-weight: bold;

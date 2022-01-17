@@ -29,7 +29,7 @@ const Gallery = () => {
   const yogaPicRef = useRef();
 
   const isTablet = useMediaQuery({ query: "(max-width: 1300px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useEffect(() => {
     const images = [];
@@ -54,14 +54,9 @@ const Gallery = () => {
     <GalleryWrapper>
       <Container>
         <Row>
-          <Col mr={isTablet ? 78 : 130}>
+          <Col mr={isTablet ? "7.8vw" : "130px"}>
             {isMobile && (
-              <Content
-                style={{
-                  marginBottom: isTablet ? 48 : 120,
-                  marginTop: isTablet ? 13 : 50,
-                }}
-              >
+              <Content title={1}>
                 <Title>
                   Share Your Talents <br />& Become a Teacher
                 </Title>
@@ -71,22 +66,21 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper
-              ref={horsePicRef}
-              width={isTablet ? 412 : 640}
-              height={isTablet ? 500 : isMobile ? 251 : 772}
-            >
-              <ImageStyled high="true" src={horsePic} alt="horse" />
+            <ImageWrapper ref={horsePicRef} horse>
+              <ImageStyled high={1} src={horsePic} alt="horse" />
             </ImageWrapper>
+            {!isMobile && (
+              <Content second>
+                <Text width={340}>
+                  Choose your own locations for your class, your home, public
+                  park, anywhere you can teach
+                </Text>
+              </Content>
+            )}
           </Col>
           <Col>
             {!isMobile && (
-              <Content
-                style={{
-                  marginBottom: isTablet ? 48 : 120,
-                  marginTop: isTablet ? 13 : 50,
-                }}
-              >
+              <Content title>
                 <Title>
                   Share Your Talents <br />& Become a Teacher
                 </Title>
@@ -96,14 +90,10 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper
-              ref={volleyballPicRef}
-              width={isTablet ? 430 : 530}
-              height={isTablet ? 319 : isMobile ? 251 : 400}
-            >
+            <ImageWrapper ref={volleyballPicRef} volleyball>
               <ImageStyled
-                high={!isMobile}
-                wide={isMobile}
+                high={!isMobile ? 1 : 0}
+                wide={isMobile ? 1 : 0}
                 src={volleyballPic}
                 alt="volleyball"
               />
@@ -111,14 +101,9 @@ const Gallery = () => {
           </Col>
         </Row>
         <Row>
-          <Col mr={isTablet ? 58 : 130}>
+          <Col mr={isTablet ? "5.8vw" : "130px"}>
             {isMobile && (
-              <Content
-                style={{
-                  marginBottom: isTablet ? 42 : 65,
-                  marginTop: isTablet ? 15 : 20,
-                }}
-              >
+              <Content second>
                 <Text width={340}>
                   Choose your own locations for your class, your home, public
                   park, anywhere you can teach
@@ -127,21 +112,20 @@ const Gallery = () => {
             )}
             <ImageWrapper
               ref={fightPicRef}
-              width={isTablet ? 317 : 470}
-              height={isTablet ? 347 : isMobile ? 307 : 510}
               style={!isMobile ? { marginLeft: 60 } : {}}
+              fight
             >
-              <ImageStyled wide="true" src={fightPic} alt="fight" />
+              <ImageStyled wide={1} src={fightPic} alt="fight" />
             </ImageWrapper>
             {!isMobile ? (
-              <Content style={{ marginTop: isTablet ? 65 : 140 }}>
+              <Content four>
                 <Text>
                   Receive payments through the app and keep track of your
                   revenue
                 </Text>
               </Content>
             ) : (
-              <Content style={{ marginBottom: isTablet ? 54 : 140 }}>
+              <Content third>
                 <Text big>
                   Manage your own schedule and give classes whenever you feel to
                 </Text>
@@ -150,7 +134,7 @@ const Gallery = () => {
           </Col>
           <Col>
             {!isMobile && (
-              <Content style={{ marginBottom: isTablet ? 54 : 140 }}>
+              <Content third>
                 <Text
                   style={isMobile ? { fontSize: theme.fonts["regular"] } : {}}
                 >
@@ -158,23 +142,14 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper
-              ref={swordsPicRef}
-              width={isTablet ? 374 : 530}
-              height={isTablet ? 339 : isMobile ? 339 : 480}
-            >
-              <ImageStyled
-                high={!isMobile}
-                wide={isMobile}
-                src={swordsPic}
-                alt="swords"
-              />
+            <ImageWrapper ref={swordsPicRef} swords>
+              <ImageStyled high={1} src={swordsPic} alt="swords" />
             </ImageWrapper>
           </Col>
         </Row>
         <Row>
           {isMobile && (
-            <Content style={{ marginTop: isTablet ? 65 : 140 }}>
+            <Content four>
               <Text big>
                 Receive payments through the app and keep track of your revenue
               </Text>
@@ -182,12 +157,12 @@ const Gallery = () => {
           )}
           <ImageWrapper
             ref={yogaPicRef}
-            height={isTablet ? 446 : isMobile ? 268 : 630}
-            style={{ marginTop: isTablet ? 55 : 85 }}
+            style={{ marginTop: isMobile ? 0 : isTablet ? 55 : 85 }}
+            yoga
           >
             <ImageStyled
-              high={isMobile}
-              wide={!isMobile}
+              high={isMobile ? 1 : 0}
+              wide={!isMobile ? 1 : 0}
               src={yogaPic}
               alt="yoga"
             />
