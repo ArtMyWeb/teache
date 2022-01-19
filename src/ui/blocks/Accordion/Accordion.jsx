@@ -121,10 +121,10 @@ const Accordion = ({ filterBySearch }) => {
   }, [filterBySearch]);
 
   useEffect(() => {
-    if (faqtab === "1") {
-      setActive({ users: true, instructors: false });
-    } else {
+    if (faqtab === "instructors") {
       setActive({ users: false, instructors: true });
+    } else {
+      setActive({ users: true, instructors: false });
     }
 
     setOpenItems([]);
@@ -145,13 +145,13 @@ const Accordion = ({ filterBySearch }) => {
   const handleClickFirstTab = () => {
     filterBySearch.length <= 1 && resetSearch();
     setActive({ users: true, instructors: false });
-    navigate(`${routesPath.faq}?tab=1`, { replace: true });
+    navigate(`${routesPath.faq}?tab=users`, { replace: true });
   };
 
   const handleClickSecondtTab = () => {
     filterBySearch.length <= 1 && resetSearch();
     setActive({ users: false, instructors: true });
-    navigate(`${routesPath.faq}?tab=2`, { replace: true });
+    navigate(`${routesPath.faq}?tab=instructors`, { replace: true });
   };
 
   return (

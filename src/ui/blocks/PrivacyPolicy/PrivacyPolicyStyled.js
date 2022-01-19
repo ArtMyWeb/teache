@@ -8,11 +8,10 @@ export const HashLinkStyled = styled(HashLink)`
 
 export const PrivacyPolicyWrapper = styled.div`
   margin-top: 214px;
-  padding: 0 16px;
+  padding: 0 40px;
   width: 100%;
   @media (max-width: 1024px) {
     margin-top: 114px;
-    padding: 0 40px;
   }
   @media (max-width: 640px) {
     margin-top: 74px;

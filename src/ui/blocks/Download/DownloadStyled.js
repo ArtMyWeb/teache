@@ -3,12 +3,12 @@ import { themeColor, themeFontSize } from "../../theme";
 import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const DownloadWrapper = styled.div`
-  margin-top: 90px;
+  margin-top: 150px;
   padding: 0 16px;
   width: 100%;
   @media (max-width: 1200px) {
     padding: 0 40px;
-    margin-top: 58px;
+    margin-top: 90px;
   }
   @media (max-width: 640px) {
     padding: 0 20px;

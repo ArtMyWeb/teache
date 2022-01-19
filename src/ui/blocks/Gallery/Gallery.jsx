@@ -31,7 +31,7 @@ const Gallery = () => {
   const swordsPicRef = useRef();
   const yogaPicRef = useRef();
 
-  const isTablet = useMediaQuery({ query: "(max-width: 1300px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1400px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useEffect(() => {

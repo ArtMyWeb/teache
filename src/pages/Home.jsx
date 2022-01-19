@@ -6,12 +6,13 @@ import { Neighborhood } from "../ui/blocks/Neighborhood";
 import { Gallery } from "../ui/blocks/Gallery";
 import { Footer } from "../ui/blocks/Footer";
 import ScrollMotion from "../ui/blocks/ScrollMotion/ScrollMotion";
+import { ScrollToTop } from "../ui/base/ScrollToTop";
 
 const HomePage = () => {
   const [headColor, setHeadColor] = useState();
   const [headSolid, setHeadSolid] = useState(false);
   return (
-    <>
+    <ScrollToTop>
       <Header color={headColor} solid={headSolid} />
       <ScrollMotion setHeadColor={setHeadColor} setHeadSolid={setHeadSolid} />
       <Info />
@@ -19,7 +20,7 @@ const HomePage = () => {
       <Neighborhood />
       <Gallery />
       <Footer />
-    </>
+    </ScrollToTop>
   );
 };
 

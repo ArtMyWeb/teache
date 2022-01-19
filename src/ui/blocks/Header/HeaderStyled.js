@@ -10,9 +10,7 @@ export const Anchor = styled.div`
   color: ${({ color, theme }) =>
     color ? theme.colors[color] : theme.colors["txt"]};
   transition: color 0.2s;
-  &:first-child {
-    margin-right: 70px;
-  }
+
   &:hover {
     color: ${themeColor("blue")};
   }
@@ -22,9 +20,6 @@ export const Anchor = styled.div`
   }
   @media (max-width: 640px) {
     font-size: ${themeFontSize("small")};
-    &:first-child {
-      margin-right: 20px;
-    }
   }
 `;
 
@@ -37,8 +32,8 @@ export const HeaderWrapper = styled.div`
   background-color: ${({ solid, theme }) =>
     solid ? theme.colors["white"] : "transparent"};
   z-index: 99;
+  padding: 0 40px;
   @media (max-width: 1200px) {
-    padding: 0 40px;
     box-shadow: none;
   }
   @media (max-width: 640px) {
@@ -48,18 +43,46 @@ export const HeaderWrapper = styled.div`
 
 export const Logo = styled.div`
   width: 220px;
+  height: 100%;
   svg {
     width: 100%;
+    height: 55px;
+  }
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   @media (max-width: 1200px) {
     width: 170px;
+    svg {
+      height: 30px;
+    }
   }
   @media (max-width: 640px) {
     width: 115px;
+    svg {
+      height: 20px;
+    }
   }
 `;
 
-export const Navigation = styled.div``;
+export const Navigation = styled.div`
+  a {
+    &:first-child {
+      margin-right: 70px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    a {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+`;
 
 export const HeaderContent = styled.div`
   display: flex;
@@ -68,5 +91,8 @@ export const HeaderContent = styled.div`
   height: 87px;
   @media (max-width: 1200px) {
     height: 70px;
+  }
+  @media (max-width: 640px) {
+    height: 50px;
   }
 `;

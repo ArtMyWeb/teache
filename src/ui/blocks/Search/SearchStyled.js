@@ -8,7 +8,7 @@ import {
 import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const SearchWrapper = styled.div`
-  padding-top: 214px;
+  padding: 214px 40px 0;
   @media (max-width: 1200px) {
     padding: 154px 40px 0;
   }

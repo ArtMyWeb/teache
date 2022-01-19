@@ -19,6 +19,7 @@ export const Row = styled.div`
   align-items: stretch;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-width: 1275px;
 `;
 
 export const Col = styled.div`
@@ -26,7 +27,7 @@ export const Col = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 16px;
+  padding: 0 18px;
   width: 25%;
   @media (max-width: 1200px) {
     padding: 0 8px;

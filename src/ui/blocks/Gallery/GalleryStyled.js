@@ -4,7 +4,7 @@ import { themeColor, themeFontSize } from "../../theme";
 export const GalleryWrapper = styled.div`
   margin-bottom: 144px;
   margin-top: 300px;
-  @media (max-width: 1300px) {
+  @media (max-width: 1400px) {
     padding: 0 4vw 6vw;
     margin-bottom: 7.2vw;
     margin-top: 150px;
@@ -67,7 +67,7 @@ export const Title = styled.div`
   font-weight: 600;
   line-height: 60px;
   margin-bottom: 40px;
-  @media (max-width: 1300px) {
+  @media (max-width: 1400px) {
     font-size: 3vw;
     line-height: 4vw;
     margin-bottom: 2.5vw;
@@ -86,7 +86,7 @@ export const Text = styled.div`
   font-weight: 500;
   color: ${themeColor("black")};
   max-width: ${({ width }) => (width ? `${width}px` : "355px")};
-  @media (max-width: 1300px) {
+  @media (max-width: 1400px) {
     font-size: 1.6vw;
     line-height: 2.4vw;
     max-width: 100%;
@@ -107,8 +107,8 @@ export const ImageStyled = styled.img`
   width: ${({ wide }) => (wide ? "100%" : "auto")};
   top: 50%;
   left: 50%;
-  transition: all 0.5s ease-in-out;
-  transform: translate(-50%, -50%) scale(1.2);
+  transition: all 0.5s 0.1s cubic-bezier(0.6, 0.05, 0.01, 0.99);
+  transform: translate(-50%, 100%) scale(1.2);
 `;
 
 const styleImages = (horse, volleyball, fight, swords, yoga) => {
@@ -136,7 +136,7 @@ const styleImages = (horse, volleyball, fight, swords, yoga) => {
       ? "630px"
       : ""};
     margin: ${({ margin }) => (margin ? margin : "")};
-    @media (max-width: 1300px) {
+    @media (max-width: 1400px) {
       width: ${horse
         ? "41.2vw"
         : volleyball
@@ -192,11 +192,11 @@ export const ImageWrapper = styled.div`
     height: 100%;
     background-color: ${themeColor("blue")};
     position: absolute;
-    top: 0;
     left: 50%;
     transition: all 1s cubic-bezier(0.6, 0.05, 0.01, 0.99);
     transform: translateX(-50%);
     z-index: 2;
+    top: 100%;
   }
   &:after {
     content: "";
@@ -206,6 +206,7 @@ export const ImageWrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
+    visibility: hidden;
     transition: all 1.3s cubic-bezier(0.6, 0.05, 0.01, 0.99);
     transform: translate(-50%, -50%);
     opacity: 0.5;
@@ -232,6 +233,7 @@ export const Row = styled.div`
     }
     ${ImageStyled} {
       transform: translate(-50%, -50%) scale(1);
+      top: 50%;
     }
   }
   @media (max-width: 768px) {

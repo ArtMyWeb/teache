@@ -3,7 +3,7 @@ import { themeColor, themeFontSize } from "../../theme";
 
 export const AccordionWrapper = styled.div`
   margin-top: 70px;
-  padding-bottom: 160px;
+  padding: 0 40px 160px 40px;
   @media (max-width: 1200px) {
     padding: 0 40px 31px 40px;
   }
