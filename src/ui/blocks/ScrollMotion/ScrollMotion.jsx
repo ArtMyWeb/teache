@@ -49,7 +49,8 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{
                     width: `${isMobile ? "300vw" : "180vw"}`,
                     height: `${isMobile ? "300vw" : "180vw"}`,
-                    y: `${isMobile ? "20%" : "20%"}`,
+                    y: "20%",
+                    x: "-50%",
                     delay: 0,
                   }}
                   onComplete={() => setHeadColor("white")}
@@ -163,7 +164,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 <Tween to={{ opacity: 1, delay: 1.5 }} target={1} />
                 <Tween to={{ opacity: 0, delay: 3 }} target={1} />
                 <Tween to={{ opacity: 1, delay: 3 }} target={2} />
-                {isMobile && <Tween to={{ y: "-500%", delay: 4 }} target={2} />}
+                {isMobile && <Tween to={{ y: "-400%", delay: 4 }} target={2} />}
               </Timeline>
               {/* Phone images */}
               <PhoneWrapper>

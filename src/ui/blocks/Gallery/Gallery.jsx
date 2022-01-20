@@ -60,7 +60,7 @@ const Gallery = () => {
       gsap.from(row, {
         scrollTrigger: {
           trigger: row,
-          start: "20% 70%",
+          start: "20% 90%",
           toggleClass: "active",
           toggleActions: "play none play none",
         },
@@ -102,7 +102,7 @@ const Gallery = () => {
                 <Title>
                   Share Your Talents <br />& Become a Teacher
                 </Title>
-                <Text>
+                <Text width={365}>
                   Join our instructors' network and give classes in your
                   neighborhood
                 </Text>
@@ -137,7 +137,7 @@ const Gallery = () => {
             </ImageWrapper>
             {!isMobile ? (
               <Content four>
-                <Text>
+                <Text width={365}>
                   Receive payments through the app and keep track of your
                   revenue
                 </Text>
