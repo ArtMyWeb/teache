@@ -30,13 +30,19 @@ const Footer = () => {
         <Row>
           <Col>
             <Social>
-              <SocialItem>
+              <SocialItem
+                target="_blank"
+                href="https://www.instagram.com/teache_app/"
+              >
                 <SocInstIcon />
               </SocialItem>
-              <SocialItem>
+              <SocialItem
+                target="_blank"
+                href="https://www.facebook.com/Teacheapp/"
+              >
                 <SocFacebookIcon />
               </SocialItem>
-              <SocialItem>
+              <SocialItem target="_blank" href="https://twitter.com/teache_app">
                 <SocTwitterIcon />
               </SocialItem>
             </Social>

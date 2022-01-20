@@ -128,18 +128,17 @@ export const MainTitle = styled.div`
   line-height: 4.167vw;
   position: absolute;
   width: 100%;
-  bottom: 70%;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -380%);
   @media (max-width: 1200px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
-    bottom: 70%;
+    transform: translate(-50%, -330%);
   }
   @media (max-width: 640px) {
     font-size: 7.5vw;
     line-height: 10vw;
-    bottom: 0;
     transform: translate(-50%, -490%);
   }
 `;
@@ -159,8 +158,9 @@ export const PhonePicture = styled.div`
   overflow: hidden;
   position: absolute;
   left: 50%;
-  bottom: ${({ first }) => (first ? "-25%" : "10%")};
-  transform: translateX(-50%) ${({ first }) => first && "scale(1.15)"};
+  bottom: 0;
+  transform: translate(-50%, ${({ first }) => (first ? "30%" : "-10%")})
+    ${({ first }) => first && "scale(1.2)"};
   z-index: 1;
   //box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
   img {
@@ -173,7 +173,8 @@ export const PhonePicture = styled.div`
   @media (max-width: 1200px) {
     width: 20.8vw;
     height: 44.8vw;
-    bottom: ${({ first }) => (first ? "-30%" : "15%")};
+    transform: translate(-50%, ${({ first }) => (first ? "37%" : "-15%")})
+      ${({ first }) => first && "scale(1.2)"};
   }
   @media (max-width: 640px) {
     width: 53.125vw;
@@ -284,19 +285,20 @@ export const Circle = styled.div`
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
-  bottom: -30%;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 32%);
   transform-origin: center;
   @media (max-width: 1200px) {
-    width: 40.417vw;
-    height: 40.417vw;
-    bottom: -30%;
+    width: 55.5vw;
+    height: 55.5vw;
+    bottom: 0;
+    transform: translate(-50%, 47%);
   }
   @media (max-width: 640px) {
     width: 126.25vw;
     height: 126.25vw;
     bottom: 0;
-    transform: translate(-50%, 40%);
+    transform: translate(-50%, 42%);
   }
 `;

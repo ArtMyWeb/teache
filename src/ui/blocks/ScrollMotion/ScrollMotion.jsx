@@ -49,7 +49,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                   to={{
                     width: `${isMobile ? "300vw" : "180vw"}`,
                     height: `${isMobile ? "300vw" : "180vw"}`,
-                    bottom: `${isMobile ? "20%" : "-70%"}`,
+                    y: `${isMobile ? "20%" : "20%"}`,
                     delay: 0,
                   }}
                   onComplete={() => setHeadColor("white")}
@@ -186,9 +186,8 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                 >
                   <Tween
                     to={{
-                      bottom: `${isMobile ? "0" : isTablet ? "15%" : "10%"}`,
+                      y: `${isMobile ? "22%" : isTablet ? "-15%" : "-10%"}`,
                       scale: "1",
-                      y: `${isMobile && "22%"}`,
                     }}
                     target={0}
                   />
@@ -208,7 +207,13 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
                     }}
                   />
                   <Tween to={{ opacity: 0, delay: 1.5 }} target={1} />
-                  <Tween to={{ y: 0, delay: 1 }} target={2} />
+                  <Tween
+                    to={{
+                      y: `${isMobile ? "0" : isTablet ? "-15%" : "-10%"}`,
+                      delay: 1,
+                    }}
+                    target={2}
+                  />
                 </Timeline>
               </PhoneWrapper>
             </div>
