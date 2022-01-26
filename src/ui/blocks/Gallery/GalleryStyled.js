@@ -206,15 +206,9 @@ export const ImageWrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    visibility: hidden;
     transition: all 1.3s cubic-bezier(0.6, 0.05, 0.01, 0.99);
     transform: translate(-50%, -50%);
-    opacity: 0.5;
-  }
-  &.light {
-    &:after {
-      opacity: 0;
-    }
+    opacity: 0;
   }
 
   @media (max-width: 480px) {
@@ -229,6 +223,14 @@ export const Row = styled.div`
     ${ImageWrapper} {
       &:before {
         top: -100%;
+      }
+      &:after {
+        opacity: 0.5;
+      }
+      &.light {
+        &:after {
+          opacity: 0;
+        }
       }
     }
     ${ImageStyled} {

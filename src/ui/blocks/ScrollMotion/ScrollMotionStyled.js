@@ -113,9 +113,31 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
 
 export const StickyStyled = styled.div`
   overflow: hidden;
-  .sticky {
-    height: 100vh;
-    width: 100%;
+  position: relative;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+`;
+
+export const Dots = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+export const Dot = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid;
+  border-color: ${themeColor("txt")};
+  z-index: 9;
+  &:not(:last-child) {
+    margin-bottom: 15px;
   }
 `;
 
@@ -159,7 +181,8 @@ export const PhonePicture = styled.div`
   position: absolute;
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, ${({ first }) => (first ? "30%" : "-10%")})
+  transition: all 0.5s;
+  transform: translate(-50%, ${({ first }) => (first ? "30%" : "-15%")})
     ${({ first }) => first && "scale(1.2)"};
   z-index: 1;
   //box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
@@ -182,29 +205,36 @@ export const PhonePicture = styled.div`
     bottom: 0;
     transform: ${({ first }) =>
       first ? "translate(-50%, 34%) scale(1.15)" : "translate(-50%, 22%)"};
+
+    &.last {
+      transform: translate(-50%, 0%);
+    }
   }
 `;
 
 export const PictureRowsWrapper = styled.div`
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -15%);
   width: 17.188vw;
   height: 37.083vw;
   z-index: 3;
-  opacity: 0;
-
+  opacity: ${({ first }) => (first ? 0 : 1)};
+  transition: all 0.5s;
   @media (max-width: 1200px) {
     width: 20.8vw;
     height: 44.8vw;
-    bottom: 15%;
+    bottom: 0;
   }
   @media (max-width: 640px) {
     width: 53.125vw;
     height: 115vw;
     bottom: 0;
     transform: translate(-50%, 22%);
+    &.last {
+      transform: translate(-50%, 0%);
+    }
   }
 `;
 
@@ -231,7 +261,8 @@ export const Column = styled.div`
   right: ${({ right }) => (right ? "16%" : "auto")};
   transform: translateY(-50%);
   text-align: left;
-  opacity: 0;
+  opacity: ${({ first }) => (first ? 0 : 1)};
+  transition: all 0.5s;
   @media (max-width: 1600px) {
     left: ${({ left }) => (left ? "8%" : "auto")};
     right: ${({ right }) => (right ? "8%" : "auto")};
@@ -246,6 +277,9 @@ export const Column = styled.div`
     left: ${({ right }) => (right ? "5%" : "auto")};
     right: ${({ left }) => (left ? "5%" : "auto")};
     transform: translateY(-400%);
+    &.last {
+      transform: translateY(-500%);
+    }
   }
 `;
 
@@ -289,6 +323,7 @@ export const Circle = styled.div`
   left: 50%;
   transform: translate(-50%, 32%);
   transform-origin: center;
+  transition: all 0.5s;
   @media (max-width: 1200px) {
     width: 55.5vw;
     height: 55.5vw;
@@ -300,5 +335,50 @@ export const Circle = styled.div`
     height: 126.25vw;
     bottom: 0;
     transform: translate(-50%, 42%);
+  }
+`;
+
+export const Section = styled.div`
+  position: relative;
+  overflow: hidden;
+  height: ${({ first }) => (first ? "calc(100vh + 70px)" : "100vh")};
+  width: 100%;
+  &.pink {
+    background-color: ${themeColor("pink")};
+  }
+  &.white {
+    background-color: ${themeColor("white")};
+  }
+  &.wrap {
+    ${Circle} {
+      width: 180vw;
+      height: 180vw;
+      transform: translate(-50%, calc(20% + 70px));
+    }
+    ${PhonePicture} {
+      transform: translate(-50%, calc(-10% - 70px)) scale(1);
+    }
+    ${PictureRowsWrapper} {
+      transform: translate(-50%, calc(-15% - 70px));
+      opacity: 1;
+    }
+    ${Column} {
+      opacity: 1;
+    }
+    @media (max-width: 1200px) {
+      ${PhonePicture} {
+        transform: translate(-50%, -15%) scale(1);
+      }
+    }
+    @media (max-width: 640px) {
+      ${PhonePicture} {
+        transform: translate(-50%, 22%) scale(1);
+      }
+      ${Circle} {
+        width: 300vw;
+        height: 300vw;
+        transform: translate(-50%, 20%);
+      }
+    }
   }
 `;

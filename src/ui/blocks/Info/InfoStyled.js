@@ -20,6 +20,7 @@ export const Row = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1275px;
+  margin: 0 auto;
 `;
 
 export const Col = styled.div`
