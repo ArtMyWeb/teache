@@ -173,6 +173,7 @@ const styleImages = (horse, volleyball, fight, swords, yoga) => {
         : yoga
         ? "83.750vw"
         : ""};
+      ${horse && "margin-bottom: 140px"};
       ${ImageStyled} {
         ${swords && "left: 30%"};
       }
