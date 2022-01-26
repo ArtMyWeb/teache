@@ -136,7 +136,7 @@ export const MainTitle = styled.div`
   @media (max-width: 640px) {
     font-size: 7.5vw;
     line-height: 10vw;
-    transform: translate(-50%, -490%);
+    transform: translate(-50%, -550%);
   }
 `;
 
@@ -181,7 +181,7 @@ export const PhonePicture = styled.div`
     height: 115vw;
     bottom: 0;
     transform: ${({ first }) =>
-      first ? "translate(-50%, 34%) scale(1.15)" : "translate(-50%, 22%)"};
+      first ? "translate(-50%, 20%) scale(1.15)" : "translate(-50%, 22%)"};
 
     &.last {
       transform: translate(-50%, 0%);
@@ -307,13 +307,13 @@ export const Circle = styled.div`
     width: 55.5vw;
     height: 55.5vw;
     bottom: 0;
-    transform: translate(-50%, 47%);
+    transform: translate(-50%, 35%);
   }
   @media (max-width: 640px) {
     width: 126.25vw;
     height: 126.25vw;
     bottom: 0;
-    transform: translate(-50%, 42%);
+    transform: translate(-50%, 28%);
   }
 `;
 
