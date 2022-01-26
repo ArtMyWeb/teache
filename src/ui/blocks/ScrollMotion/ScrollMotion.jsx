@@ -59,7 +59,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
     });
     ScrollTrigger.create({
       trigger: thirdSection.current,
-      start: "top top",
+      start: "-40px top",
       onEnter: () => {
         setHeadColor("grey");
       },
