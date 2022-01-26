@@ -32,9 +32,9 @@ export const Content = styled.div`
   flex-direction: column;
   margin: ${({ title, second, third, four }) =>
     title
-      ? "120px 0 50px"
+      ? "120px 0 120px"
       : second
-      ? "20px 0 65px"
+      ? "70px 0 65px"
       : third
       ? "0 0 140px"
       : four

@@ -116,31 +116,6 @@ export const StickyStyled = styled.div`
   position: relative;
 `;
 
-export const Wrapper = styled.div`
-  position: relative;
-`;
-
-export const Dots = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-`;
-
-export const Dot = styled.div`
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1px solid;
-  border-color: ${themeColor("txt")};
-  z-index: 9;
-  &:not(:last-child) {
-    margin-bottom: 15px;
-  }
-`;
-
 export const MainTitle = styled.div`
   color: ${themeColor("txt")};
   font-size: 3.333vw;
@@ -156,7 +131,7 @@ export const MainTitle = styled.div`
   @media (max-width: 1200px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
-    transform: translate(-50%, -330%);
+    transform: translate(-50%, calc(-350% - 70px));
   }
   @media (max-width: 640px) {
     font-size: 7.5vw;
@@ -185,7 +160,6 @@ export const PhonePicture = styled.div`
   transform: translate(-50%, ${({ first }) => (first ? "30%" : "-15%")})
     ${({ first }) => first && "scale(1.2)"};
   z-index: 1;
-  //box-shadow: 0 4px 30px 6px rgba(25, 29, 58, 0.17);
   img {
     width: 100%;
     height: 100%;
@@ -196,7 +170,10 @@ export const PhonePicture = styled.div`
   @media (max-width: 1200px) {
     width: 20.8vw;
     height: 44.8vw;
-    transform: translate(-50%, ${({ first }) => (first ? "37%" : "-15%")})
+    transform: translate(
+        -50%,
+        ${({ first }) => (first ? "calc(37% - 70px)" : "-15%")}
+      )
       ${({ first }) => first && "scale(1.2)"};
   }
   @media (max-width: 640px) {
@@ -276,7 +253,9 @@ export const Column = styled.div`
     bottom: 0;
     left: ${({ right }) => (right ? "5%" : "auto")};
     right: ${({ left }) => (left ? "5%" : "auto")};
-    transform: translateY(-400%);
+    transform: translateY(
+      ${({ first }) => (first ? "calc(-400% - 70px)" : "-400%")}
+    );
     &.last {
       transform: translateY(-500%);
     }
@@ -353,7 +332,7 @@ export const Section = styled.div`
     ${Circle} {
       width: 180vw;
       height: 180vw;
-      transform: translate(-50%, calc(20% + 70px));
+      bottom: -20%;
     }
     ${PhonePicture} {
       transform: translate(-50%, calc(-10% - 70px)) scale(1);
@@ -367,17 +346,23 @@ export const Section = styled.div`
     }
     @media (max-width: 1200px) {
       ${PhonePicture} {
-        transform: translate(-50%, -15%) scale(1);
+        transform: translate(-50%, calc(-15% - 70px)) scale(1);
+      }
+      ${Circle} {
+        bottom: 40%;
       }
     }
     @media (max-width: 640px) {
       ${PhonePicture} {
-        transform: translate(-50%, 22%) scale(1);
+        transform: translate(-50%, calc(22% - 70px)) scale(1);
+      }
+      ${PictureRowsWrapper} {
+        transform: translate(-50%, calc(22% - 70px));
       }
       ${Circle} {
         width: 300vw;
         height: 300vw;
-        transform: translate(-50%, 20%);
+        bottom: 20%;
       }
     }
   }
