@@ -37,6 +37,7 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
     const sections = gsap.utils.toArray(".sticky");
     sections.forEach((section) => {
       ScrollTrigger.create({
+        duration: 2,
         trigger: section,
         start: "70px top",
         pin: true,

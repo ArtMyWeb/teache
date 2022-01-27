@@ -40,7 +40,7 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
       : time
       ? "18.438vw"
       : "0"};
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       width: ${fitness || climbing
         ? "19vw"
         : woman
@@ -128,7 +128,7 @@ export const MainTitle = styled.div`
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -380%);
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
     transform: translate(-50%, calc(-350% - 70px));
@@ -167,7 +167,7 @@ export const PhonePicture = styled.div`
     top: 0;
     left: 0;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     width: 20.8vw;
     height: 44.8vw;
     transform: translate(
@@ -199,7 +199,7 @@ export const PictureRowsWrapper = styled.div`
   z-index: 3;
   opacity: ${({ first }) => (first ? 0 : 1)};
   transition: all 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     width: 20.8vw;
     height: 44.8vw;
     bottom: 0;
@@ -244,7 +244,7 @@ export const Column = styled.div`
     left: ${({ left }) => (left ? "8%" : "auto")};
     right: ${({ right }) => (right ? "8%" : "auto")};
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     width: 26.5vw;
   }
   @media (max-width: 640px) {
@@ -266,7 +266,7 @@ export const ColumnTitle = styled.div`
   font-size: 1.563vw;
   font-family: Poppins, Montserrat, Roboto, "sans-serif";
   font-weight: 600;
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     font-size: 2.4vw;
   }
   @media (max-width: 640px) {
@@ -279,7 +279,7 @@ export const ColumnText = styled.div`
   font-family: Montserrat, Poppins, Roboto, "sans-serif";
   font-weight: 500;
   margin-top: 14px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     font-size: 1.8vw;
     margin-top: 0.79vw;
   }
@@ -303,7 +303,7 @@ export const Circle = styled.div`
   transform: translate(-50%, 32%);
   transform-origin: center;
   transition: all 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     width: 55.5vw;
     height: 55.5vw;
     bottom: 0;
@@ -344,7 +344,7 @@ export const Section = styled.div`
     ${Column} {
       opacity: 1;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       ${PhonePicture} {
         transform: translate(-50%, calc(-15% - 70px)) scale(1);
       }

@@ -199,18 +199,6 @@ export const ImageWrapper = styled.div`
     z-index: 2;
     top: 100%;
   }
-  &:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: ${themeColor("txt")};
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transition: all 1.3s cubic-bezier(0.6, 0.05, 0.01, 0.99);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  }
 
   @media (max-width: 480px) {
     max-width: 100%;
@@ -227,11 +215,6 @@ export const Row = styled.div`
       }
       &:after {
         opacity: 0.5;
-      }
-      &.light {
-        &:after {
-          opacity: 0;
-        }
       }
     }
     ${ImageStyled} {
