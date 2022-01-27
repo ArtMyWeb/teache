@@ -110,6 +110,7 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
     }
   `;
 };
+const indent = "70px";
 
 export const StickyStyled = styled.div`
   overflow: hidden;
@@ -127,11 +128,11 @@ export const MainTitle = styled.div`
   width: 100%;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, -380%);
+  transform: translate(-50%, -430%);
   @media (max-width: 1400px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
-    transform: translate(-50%, calc(-350% - 70px));
+    transform: translate(-50%, calc(-350% - ${indent}));
   }
   @media (max-width: 640px) {
     font-size: 7.5vw;
@@ -155,9 +156,9 @@ export const PhonePicture = styled.div`
   overflow: hidden;
   position: absolute;
   left: 50%;
-  bottom: 0;
+  top: 50%;
   transition: all 0.5s;
-  transform: translate(-50%, ${({ first }) => (first ? "30%" : "-15%")})
+  transform: translate(-50%, ${({ first }) => (first ? "-12%" : "-50%")})
     ${({ first }) => first && "scale(1.2)"};
   z-index: 1;
   img {
@@ -170,9 +171,10 @@ export const PhonePicture = styled.div`
   @media (max-width: 1400px) {
     width: 20.8vw;
     height: 44.8vw;
+    top: ${({ first }) => (first ? "100%" : "50%")};
     transform: translate(
         -50%,
-        ${({ first }) => (first ? "calc(37% - 70px)" : "-15%")}
+        ${({ first }) => (first ? `calc(-30vw - ${indent})` : "-50%")}
       )
       ${({ first }) => first && "scale(1.2)"};
   }
@@ -180,6 +182,7 @@ export const PhonePicture = styled.div`
     width: 53.125vw;
     height: 115vw;
     bottom: 0;
+    top: auto;
     transform: ${({ first }) =>
       first ? "translate(-50%, 20%) scale(1.15)" : "translate(-50%, 22%)"};
 
@@ -191,9 +194,9 @@ export const PhonePicture = styled.div`
 
 export const PictureRowsWrapper = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -15%);
+  transform: translate(-50%, -50%);
   width: 17.188vw;
   height: 37.083vw;
   z-index: 3;
@@ -202,11 +205,17 @@ export const PictureRowsWrapper = styled.div`
   @media (max-width: 1400px) {
     width: 20.8vw;
     height: 44.8vw;
-    bottom: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translate(
+      -50%,
+      ${({ first }) => (first ? `calc(-50% + ${indent})` : "-50%")}
+    );
   }
   @media (max-width: 640px) {
     width: 53.125vw;
     height: 115vw;
+    top: auto;
     bottom: 0;
     transform: translate(-50%, 22%);
     &.last {
@@ -245,7 +254,8 @@ export const Column = styled.div`
     right: ${({ right }) => (right ? "8%" : "auto")};
   }
   @media (max-width: 1400px) {
-    width: 26.5vw;
+    width: 27.5vw;
+    top: 45%;
   }
   @media (max-width: 640px) {
     width: 56.25vw;
@@ -254,7 +264,7 @@ export const Column = styled.div`
     left: ${({ right }) => (right ? "5%" : "auto")};
     right: ${({ left }) => (left ? "5%" : "auto")};
     transform: translateY(
-      ${({ first }) => (first ? "calc(-400% - 70px)" : "-400%")}
+      ${({ first }) => (first ? `calc(-400% - ${indent})` : "-400%")}
     );
     &.last {
       transform: translateY(-500%);
@@ -267,6 +277,9 @@ export const ColumnTitle = styled.div`
   font-family: Poppins, Montserrat, Roboto, "sans-serif";
   font-weight: 600;
   @media (max-width: 1400px) {
+    font-size: 2vw;
+  }
+  @media (max-width: 1200px) {
     font-size: 2.4vw;
   }
   @media (max-width: 640px) {
@@ -280,8 +293,12 @@ export const ColumnText = styled.div`
   font-weight: 500;
   margin-top: 14px;
   @media (max-width: 1400px) {
-    font-size: 1.8vw;
+    font-size: 1.6vw;
+    line-height: 1.5;
     margin-top: 0.79vw;
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.8vw;
   }
   @media (max-width: 640px) {
     font-size: 3.75vw;
@@ -300,7 +317,7 @@ export const Circle = styled.div`
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 32%);
+  transform: translate(-50%, 20%);
   transform-origin: center;
   transition: all 0.5s;
   @media (max-width: 1400px) {
@@ -320,7 +337,7 @@ export const Circle = styled.div`
 export const Section = styled.div`
   position: relative;
   overflow: hidden;
-  height: ${({ first }) => (first ? "calc(100vh + 70px)" : "100vh")};
+  height: ${({ first }) => (first ? `calc(100vh + ${indent})` : "100vh")};
   width: 100%;
   &.pink {
     background-color: ${themeColor("pink")};
@@ -335,18 +352,24 @@ export const Section = styled.div`
       bottom: -20%;
     }
     ${PhonePicture} {
-      transform: translate(-50%, calc(-10% - 70px)) scale(1);
+      transform: translate(-50%, calc(-50%)) scale(1);
     }
     ${PictureRowsWrapper} {
-      transform: translate(-50%, calc(-15% - 70px));
       opacity: 1;
     }
     ${Column} {
       opacity: 1;
     }
     @media (max-width: 1400px) {
+      ${PictureRowsWrapper} {
+        transform: translate(
+          -50%,
+          ${({ first }) => (first ? `calc(-50% + ${indent})` : "-50%")}
+        );
+      }
       ${PhonePicture} {
-        transform: translate(-50%, calc(-15% - 70px)) scale(1);
+        top: 50%;
+        transform: translate(-50%, calc(-50% + ${indent})) scale(1);
       }
       ${Circle} {
         bottom: 40%;
@@ -354,10 +377,10 @@ export const Section = styled.div`
     }
     @media (max-width: 640px) {
       ${PhonePicture} {
-        transform: translate(-50%, calc(22% - 70px)) scale(1);
+        transform: translate(-50%, calc(22% - ${indent})) scale(1);
       }
       ${PictureRowsWrapper} {
-        transform: translate(-50%, calc(22% - 70px));
+        transform: translate(-50%, calc(22% - ${indent}));
       }
       ${Circle} {
         width: 300vw;
