@@ -22,10 +22,10 @@ const Download = () => {
       <Container>
         <Title>Download the App</Title>
         <ButtonRow>
-          <Button icon={<AppleIcon />} background="blue">
+          <Button icon={<AppleIcon />} bg="blue">
             Apple Store
           </Button>
-          <Button icon={<GoogleIcon />} background="blue">
+          <Button icon={<GoogleIcon />} bg="blue">
             Google play
           </Button>
         </ButtonRow>

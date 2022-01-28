@@ -43,6 +43,15 @@ export const Content = styled.div`
   @media (max-width: 768px) {
     margin-left: 0;
   }
+  table {
+    margin-top: 30px;
+    tr {
+      text-align: left;
+    }
+    strong {
+      font-size: 16px;
+    }
+  }
   p {
     font-size: ${themeFontSize("medium")};
     color: ${themeColor("black")};
@@ -122,15 +131,6 @@ export const Title = styled.div`
   }
 `;
 
-export const SideBar = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  @media (max-width: 1024px) {
-    min-width: 282px;
-  }
-`;
-
 export const SideBarItem = styled.div`
   cursor: pointer;
   height: 85px;
@@ -141,15 +141,12 @@ export const SideBarItem = styled.div`
   font-family: Poppins, sans-serif;
   font-weight: 600;
   font-size: ${themeFontSize("h5")};
-  color: ${({ active, theme }) =>
-    active ? theme.colors["blue"] : theme.colors["txt"]};
+  color: ${themeColor("txt")};
   border-radius: 0 10px 10px 0;
-  ${({ active, theme }) =>
-    active && `border-right: 15px solid ${theme.colors["blue"]}`};
+  border-right: 15px solid transparent;
   &:before {
     content: "";
-    background-color: ${({ active, theme }) =>
-      active ? theme.colors["lightBlue2"] : "transparent"};
+    background-color: transparent;
     position: absolute;
     right: 0;
     top: 0;
@@ -172,10 +169,36 @@ export const SideBarItem = styled.div`
     border-radius: 0 3px 3px 0;
     letter-spacing: -0.8px;
     margin-bottom: 5px;
-    ${({ active, theme }) =>
-      active && `border-right: 10px solid ${theme.colors["blue"]}`};
     &:before {
       height: 49px;
     }
+  }
+`;
+
+export const SideBar = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  a {
+    &:hover {
+      ${SideBarItem} {
+        color: ${themeColor("blue")};
+      }
+    }
+  }
+  .active {
+    ${SideBarItem} {
+      color: ${themeColor("blue")};
+      border-right-color: ${themeColor("blue")};
+      &:before {
+        background-color: ${themeColor("lightBlue2")};
+      }
+      @media (max-width: 768px) {
+        border-right: 10px solid ${themeColor("blue")};
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    min-width: 282px;
   }
 `;

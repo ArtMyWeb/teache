@@ -20,7 +20,7 @@ const Search = ({ onSearchSubmit }) => {
             value={query}
             placeholder="Type your question"
           />
-          <Button onClick={handleSubmitSearch} background="blue" width={173}>
+          <Button onClick={handleSubmitSearch} bg="blue" width={173}>
             Search
           </Button>
         </SearchBar>

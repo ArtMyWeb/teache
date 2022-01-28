@@ -1,9 +1,10 @@
-import { Home, Faq, Policy } from "../pages";
+import { Home, Faq, Agreements } from "../pages";
 
 export const routesPath = {
   main: "/",
   faq: "/faq",
   privacy: "/privacy-policy",
+  terms: "/terms",
 };
 
 export const routes = [
@@ -17,6 +18,10 @@ export const routes = [
   },
   {
     path: routesPath.privacy,
-    component: <Policy />,
+    component: <Agreements />,
+  },
+  {
+    path: routesPath.terms,
+    component: <Agreements />,
   },
 ];

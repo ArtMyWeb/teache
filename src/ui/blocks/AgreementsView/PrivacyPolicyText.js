@@ -1,4 +1,4 @@
-export const privacy_policy = () => {
+export const PrivacyPolicyText = () => {
   return (
     <>
       <p>

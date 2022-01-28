@@ -155,9 +155,7 @@ const Terms = () => {
           </HashLinkStyled>
         </li>
         <li>
-          <HashLinkStyled to="?tab=terms&id=14">
-            14. Modification.
-          </HashLinkStyled>
+          <HashLinkStyled to="?tab=terms&id=14">Modification.</HashLinkStyled>
         </li>
         <li>
           <HashLinkStyled to="?tab=terms&id=15">
@@ -1473,6 +1471,24 @@ const Terms = () => {
         If you have any questions about these Terms, please email us at
         hello@teache.co.
       </p>
+      <table>
+        <tbody>
+          <tr>
+            <th width="25%">Your place of residence or establishment:</th>
+            <th width="25%">Your activity on the Teache Platform:</th>
+            <th width="25%">Airbnb contracting Entity:</th>
+            <th width="25%">Contact information:</th>
+          </tr>
+          <tr>
+            <td rowSpan="3" valign="top">
+              <strong>United States</strong>
+            </td>
+            <td>Booking or offering classes located in the United States.</td>
+            <td>Teache, Inc.</td>
+            <td>888 Brannan Street, San Francisco, CA 94103, United States</td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };

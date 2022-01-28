@@ -47,8 +47,8 @@ const Footer = () => {
               </SocialItem>
             </Social>
             <Links>
-              <Link to={`${routesPath.privacy}?tab=privacy`}>Privacy</Link>
-              <Link to={`${routesPath.privacy}?tab=terms`}>Terms</Link>
+              <Link to={routesPath.privacy}>Privacy</Link>
+              <Link to={routesPath.terms}>Terms</Link>
             </Links>
           </Col>
           <ColText>
@@ -56,10 +56,10 @@ const Footer = () => {
           </ColText>
           <ColBtn>
             <Buttons>
-              <Button icon={<AppleIcon />} background="blue">
+              <Button icon={<AppleIcon />} bg="blue">
                 Apple Store
               </Button>
-              <Button icon={<GoogleIcon />} background="blue">
+              <Button icon={<GoogleIcon />} bg="blue">
                 Google play
               </Button>
             </Buttons>

@@ -156,9 +156,12 @@ export const PhonePicture = styled.div`
   overflow: hidden;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: ${({ first }) => (first ? "100%" : "50%")};
   transition: all 0.5s;
-  transform: translate(-50%, ${({ first }) => (first ? "-12%" : "-50%")})
+  transform: translate(
+      -50%,
+      ${({ first }) => (first ? `calc(-26vw - ${indent})` : "-50%")}
+    )
     ${({ first }) => first && "scale(1.2)"};
   z-index: 1;
   img {

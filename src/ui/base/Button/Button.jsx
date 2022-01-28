@@ -4,20 +4,20 @@ import { ButtonStyled } from "./ButtonStyled";
 export const Button = (props) => {
   const {
     color,
-    background,
+    bg,
     size,
     icon,
     transparent,
     center,
     width,
     children,
-    onClick
+    onClick,
   } = props;
   return (
     <ButtonStyled
       center={center}
       color={color}
-      background={background}
+      background={bg}
       size={size}
       transparent={transparent}
       width={width}
