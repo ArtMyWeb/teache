@@ -355,7 +355,12 @@ export const Section = styled.div`
       bottom: -20%;
     }
     ${PhonePicture} {
-      transform: translate(-50%, calc(-50%)) scale(1);
+      top: 50%;
+      transform: translate(
+          -50%,
+          ${({ first }) => (first ? `calc(-50% + ${indent})` : "-50%")}
+        )
+        scale(1);
     }
     ${PictureRowsWrapper} {
       opacity: 1;
