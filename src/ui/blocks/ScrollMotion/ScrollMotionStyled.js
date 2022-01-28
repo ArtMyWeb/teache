@@ -158,6 +158,7 @@ export const PhonePicture = styled.div`
   left: 50%;
   top: ${({ first }) => (first ? "100%" : "50%")};
   transition: all 0.5s;
+  background-color: ${themeColor("txt")};
   transform: translate(
       -50%,
       ${({ first }) => (first ? `calc(-26vw - ${indent})` : "-50%")}
@@ -258,7 +259,7 @@ export const Column = styled.div`
   }
   @media (max-width: 1400px) {
     width: 27.5vw;
-    top: 45%;
+    top: 50%;
   }
   @media (max-width: 640px) {
     width: 56.25vw;
