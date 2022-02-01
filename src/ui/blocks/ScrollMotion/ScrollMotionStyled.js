@@ -17,9 +17,9 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
       ? "47%"
       : "0"};
     bottom: ${fitness
-      ? "48.5%"
+      ? `calc(48.5% - ${indent})`
       : climbing
-      ? "13.5%"
+      ? `calc(13.5% - ${indent})`
       : woman
       ? "58.5%"
       : man
@@ -119,7 +119,7 @@ export const StickyStyled = styled.div`
 
 export const MainTitle = styled.div`
   color: ${themeColor("txt")};
-  font-size: 3.333vw;
+  font-size: 3.8vw;
   text-align: center;
   font-family: Poppins, Montserrat, sans-serif;
   font-weight: 600;
@@ -128,7 +128,7 @@ export const MainTitle = styled.div`
   width: 100%;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, -430%);
+  transform: translate(-50%, -450%);
   @media (max-width: 1400px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
@@ -163,7 +163,7 @@ export const PhonePicture = styled.div`
       -50%,
       ${({ first }) => (first ? `calc(-26vw - ${indent})` : "-50%")}
     )
-    ${({ first }) => first && "scale(1.2)"};
+    ${({ first }) => (first ? "scale(1.2)" : "scale(1.1)")};
   z-index: 1;
   img {
     width: 100%;
@@ -180,7 +180,7 @@ export const PhonePicture = styled.div`
         -50%,
         ${({ first }) => (first ? `calc(-30vw - ${indent})` : "-50%")}
       )
-      ${({ first }) => first && "scale(1.2)"};
+      scale(1.2);
   }
   @media (max-width: 640px) {
     width: 53.125vw;
@@ -200,7 +200,7 @@ export const PictureRowsWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.1);
   width: 17.188vw;
   height: 37.083vw;
   z-index: 3;
@@ -245,7 +245,7 @@ export const Column = styled.div`
   color: ${({ dark, theme }) =>
     dark ? theme.colors["txt"] : theme.colors["white"]};
   position: absolute;
-  width: 16.146vw;
+  width: 19vw;
   top: 50%;
   left: ${({ left }) => (left ? "16%" : "auto")};
   right: ${({ right }) => (right ? "16%" : "auto")};
@@ -253,10 +253,6 @@ export const Column = styled.div`
   text-align: left;
   opacity: ${({ first }) => (first ? 0 : 1)};
   transition: all 0.5s;
-  @media (max-width: 1600px) {
-    left: ${({ left }) => (left ? "8%" : "auto")};
-    right: ${({ right }) => (right ? "8%" : "auto")};
-  }
   @media (max-width: 1400px) {
     width: 27.5vw;
     top: 50%;
@@ -277,7 +273,7 @@ export const Column = styled.div`
 `;
 
 export const ColumnTitle = styled.div`
-  font-size: 1.563vw;
+  font-size: 1.7vw;
   font-family: Poppins, Montserrat, Roboto, "sans-serif";
   font-weight: 600;
   @media (max-width: 1400px) {
@@ -292,7 +288,7 @@ export const ColumnTitle = styled.div`
 `;
 
 export const ColumnText = styled.div`
-  font-size: 1.042vw;
+  font-size: 1.2vw;
   font-family: Montserrat, Poppins, Roboto, "sans-serif";
   font-weight: 500;
   margin-top: 14px;
@@ -361,7 +357,7 @@ export const Section = styled.div`
           -50%,
           ${({ first }) => (first ? `calc(-50% + ${indent})` : "-50%")}
         )
-        scale(1);
+        scale(1.1);
     }
     ${PictureRowsWrapper} {
       opacity: 1;
