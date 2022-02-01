@@ -180,7 +180,7 @@ export const PhonePicture = styled.div`
         -50%,
         ${({ first }) => (first ? `calc(-30vw - ${indent})` : "-50%")}
       )
-      scale(1.2);
+      ${({ first }) => first && "scale(1.2)"};
   }
   @media (max-width: 640px) {
     width: 53.125vw;
@@ -255,6 +255,8 @@ export const Column = styled.div`
   transition: all 0.5s;
   @media (max-width: 1400px) {
     width: 27.5vw;
+    left: ${({ left }) => (left ? "8%" : "auto")};
+    right: ${({ right }) => (right ? "8%" : "auto")};
     top: 50%;
   }
   @media (max-width: 640px) {
@@ -273,7 +275,7 @@ export const Column = styled.div`
 `;
 
 export const ColumnTitle = styled.div`
-  font-size: 1.7vw;
+  font-size: 1.8vw;
   font-family: Poppins, Montserrat, Roboto, "sans-serif";
   font-weight: 600;
   @media (max-width: 1400px) {
