@@ -119,11 +119,11 @@ export const StickyStyled = styled.div`
 
 export const MainTitle = styled.div`
   color: ${themeColor("txt")};
-  font-size: 3.8vw;
+  font-size: 4vw;
   text-align: center;
   font-family: Poppins, Montserrat, sans-serif;
   font-weight: 600;
-  line-height: 4.167vw;
+  line-height: 4.2vw;
   position: absolute;
   width: 100%;
   bottom: 0;
