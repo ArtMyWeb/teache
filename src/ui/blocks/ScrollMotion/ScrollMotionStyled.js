@@ -157,7 +157,7 @@ export const PhonePicture = styled.div`
   position: absolute;
   left: 50%;
   top: ${({ first }) => (first ? "100%" : "50%")};
-  transition: all 0.5s;
+  transition: all 0.6s;
   background-color: ${themeColor("txt")};
   transform: translate(
       -50%,
